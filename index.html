@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fatima Mahmood — Geospatial Portfolio | QGIS, Remote Sensing &amp; Web-GIS</title>
+<meta name="description" content="Geospatial analyst and data storyteller. QGIS cartography, satellite-derived hazard and exposure mapping, animated map products and public web-GIS dashboards for Pakistan.">
+<meta name="author" content="Fatima Mahmood">
+<meta name="theme-color" content="#10192b">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Fatima Mahmood — Geospatial Portfolio">
+<meta property="og:description" content="QGIS cartography, hazard &amp; exposure mapping, animated map products and public web-GIS dashboards for Pakistan.">
+<meta property="og:image" content="assets/img/urban-extent-2030.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2310192b'/%3E%3Cpath d='M6 21c4-7 8 3 12-4s5-6 8-8' stroke='%230d7a6f' stroke-width='2.2' fill='none' stroke-linecap='round'/%3E%3Cpath d='M6 26c4-7 8 3 12-4s5-6 8-8' stroke='%23c25a1e' stroke-width='2.2' fill='none' stroke-linecap='round' opacity='.75'/%3E%3C/svg%3E">
+</head>
+<body>
+
+<a class="skip-link" href="#work">Skip to work</a>
+
+<header class="nav" id="nav">
+  <div class="wrap nav__inner">
+    <a class="nav__brand" href="#top">
+      <span class="nav__mark" aria-hidden="true"></span>
+      <span class="nav__name">Fatima&nbsp;Mahmood</span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#work">Work</a>
+      <a href="#dashboards">Dashboards</a>
+      <a href="#method">Method</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav__actions">
+      <button class="themebtn" id="themeToggle" type="button" aria-label="Switch colour theme">
+        <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><g stroke-linecap="round"><path d="M12 2.6v2.4M12 19v2.4M21.4 12H19M5 12H2.6M18.6 5.4l-1.7 1.7M7.1 16.9l-1.7 1.7M18.6 18.6l-1.7-1.7M7.1 7.1L5.4 5.4"/></g></svg>
+        <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.2A8.2 8.2 0 019.8 4 8.4 8.4 0 1020 14.2z"/></svg>
+      </button>
+      <a class="btn btn--sm btn--solid" href="assets/docs/Fatima-Mahmood-CV.pdf" download>CV</a>
+      <button class="nav__burger" id="burger" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- ─────────────────────────── HERO ─────────────────────────── -->
+<section class="hero" id="top">
+  <div class="hero__grid" aria-hidden="true"></div>
+  <div class="wrap hero__inner">
+    <div class="hero__text reveal">
+      <p class="eyebrow"><span class="dot"></span> Islamabad, Pakistan &middot; Open to GIS &amp; analyst roles</p>
+      <h1 class="hero__title">Turning satellite data into <em>maps people can act on.</em></h1>
+      <p class="hero__lede">
+        I'm a geospatial analyst and data storyteller working at the intersection of
+        <strong>QGIS cartography</strong>, <strong>remote sensing</strong> and <strong>public web dashboards</strong>.
+        I build hazard, exposure and urbanisation products for Pakistan — glacier inventories,
+        settlement growth models, animated map narratives — and turn them into briefings
+        non-technical decision-makers can read in thirty seconds.
+      </p>
+      <div class="hero__cta">
+        <a class="btn btn--solid" href="#work">View the map portfolio</a>
+        <a class="btn btn--ghost" href="assets/docs/Fatima-Mahmood-CV.pdf" download>
+          <svg viewBox="0 0 24 24" aria-hidden="true" class="btn__i"><path d="M12 3v11m0 0l4-4m-4 4l-4-4M4 18.5h16"/></svg>
+          Download CV
+        </a>
+      </div>
+      <dl class="hero__stats">
+        <div><dt>7</dt><dd>Map &amp; motion products</dd></div>
+        <div><dt>3</dt><dd>Live public dashboards</dd></div>
+        <div><dt>1995&ndash;2030</dt><dd>Time-series modelled</dd></div>
+      </dl>
+    </div>
+
+    <figure class="hero__plate reveal" data-delay="1">
+      <video class="hero__video" poster="assets/img/poster-urban-extent-growth.jpg"
+             muted loop playsinline preload="none" autoplay>
+        <source src="assets/video/urban-extent-growth.mp4" type="video/mp4">
+      </video>
+      <figcaption>
+        <span class="mono">FIG. 01</span>
+        Pakistan urban extent, 1995&ndash;2030 &middot; GHSL degree-of-urbanisation classes
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ───────────────────────── CAPABILITIES ───────────────────── -->
+<section class="section section--tight" id="focus">
+  <div class="wrap">
+    <div class="cap-grid">
+      <article class="cap reveal">
+        <span class="cap__n mono">01</span>
+        <h3>Spatial analysis &amp; remote sensing</h3>
+        <p>Processing satellite and open geospatial datasets in QGIS and Google Earth Engine — raster and vector workflows, reclassification, zonal statistics, change detection over time.</p>
+      </article>
+      <article class="cap reveal" data-delay="1">
+        <span class="cap__n mono">02</span>
+        <h3>Cartography &amp; map production</h3>
+        <p>Print-standard layouts with neatlines, graticules, declared CRS, scale bars and legends — consistent symbology and documentation across every product in a series.</p>
+      </article>
+      <article class="cap reveal" data-delay="2">
+        <span class="cap__n mono">03</span>
+        <h3>Motion &amp; multimedia</h3>
+        <p>Animated time-series map products for briefings, social channels and international forums — rendered, encoded and delivered web-ready for any device.</p>
+      </article>
+      <article class="cap reveal" data-delay="3">
+        <span class="cap__n mono">04</span>
+        <h3>Web dashboards &amp; delivery</h3>
+        <p>Public-facing dashboards and portals built with Python, HTML/CSS/JS and GitHub Pages — turning a technical layer stack into something a non-specialist can navigate.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────────────────  WORK  ───────────────────────── -->
+<section class="section" id="work">
+  <div class="wrap">
+    <header class="shead reveal">
+      <p class="eyebrow">Selected work</p>
+      <h2>Map &amp; motion portfolio</h2>
+      <p class="shead__sub">Static cartography and animated time-series built in QGIS from open satellite and settlement data. Click any map to inspect it at full resolution; click any animation to play it.</p>
+    </header>
+
+    <div class="filters reveal" role="tablist" aria-label="Filter work">
+      <button class="chip is-active" data-filter="all" role="tab" aria-selected="true">All work</button>
+      <button class="chip" data-filter="hazard" role="tab" aria-selected="false">Hazard &amp; climate</button>
+      <button class="chip" data-filter="exposure" role="tab" aria-selected="false">Urbanisation &amp; exposure</button>
+      <button class="chip" data-filter="motion" role="tab" aria-selected="false">Animation</button>
+      <button class="chip" data-filter="carto" role="tab" aria-selected="false">Cartography</button>
+    </div>
+
+    <div class="work-grid" id="workGrid">
+
+      <!-- 1 -->
+      <article class="card card--wide reveal" data-tags="exposure carto">
+        <button class="card__media" data-lightbox="assets/img/urban-extent-2030-full.jpg"
+                data-caption="Pakistan Urban Extent — 2030 projection. GHSL degree-of-urbanisation classes, EPSG:4326 / WGS 84.">
+          <img src="assets/img/urban-extent-2030.jpg" alt="Map of Pakistan showing projected 2030 urban extent classified into urban centre, dense cluster, semi-dense and suburban categories" loading="lazy" width="1000" height="707">
+          <span class="card__zoom" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M15.8 15.8L21 21M8.5 11h5M11 8.5v5"/></svg>
+            Full resolution
+          </span>
+        </button>
+        <div class="card__body">
+          <div class="card__tags"><span class="tag tag--exp">Exposure</span><span class="tag">Static map</span></div>
+          <h3>Pakistan Urban Extent — 2030 Projection</h3>
+          <p>National settlement classification projected to 2030, separating urban centres from dense clusters, semi-dense zones and suburban fringe. The banded pattern along the Indus corridor and the Punjab plain shows where future exposure concentrates — the same footprint that determines flood, heat and seismic risk for the next decade.</p>
+          <dl class="meta">
+            <div><dt>Tool</dt><dd>QGIS Print Layout</dd></div>
+            <div><dt>CRS</dt><dd class="mono">EPSG:4326 · WGS 84</dd></div>
+            <div><dt>Classes</dt><dd>Urban centre · Dense cluster · Semi-dense · Suburban</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <!-- 2 -->
+      <article class="card reveal" data-tags="exposure motion" data-delay="1">
+        <div class="card__media card__media--video">
+          <video poster="assets/img/poster-urban-extent-growth.jpg" muted loop playsinline preload="none">
+            <source src="assets/video/urban-extent-growth.mp4" type="video/mp4">
+          </video>
+          <button class="playbtn" aria-label="Play animation"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></button>
+        </div>
+        <div class="card__body">
+          <div class="card__tags"><span class="tag tag--exp">Exposure</span><span class="tag tag--mot">Animation</span></div>
+          <h3>Urban Extent Growth, 1995&ndash;2030</h3>
+          <p>The static projection above, animated. A year counter drives 35 frames of settlement classification so a viewer watches the urban fabric thicken along the Indus rather than reading it from a table.</p>
+          <dl class="meta">
+            <div><dt>Span</dt><dd>1995 &rarr; 2030</dd></div>
+            <div><dt>Output</dt><dd class="mono">MP4 · H.264 · 30 fps</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <!-- 3 -->
+      <article class="card reveal" data-tags="exposure motion" data-delay="2">
+        <div class="card__media card__media--video card__media--dark">
+          <video poster="assets/img/poster-builtup-growth.jpg" muted loop playsinline preload="none">
+            <source src="assets/video/builtup-growth.mp4" type="video/mp4">
+          </video>
+          <button class="playbtn" aria-label="Play animation"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></button>
+        </div>
+        <div class="card__body">
+          <div class="card__tags"><span class="tag tag--exp">Exposure</span><span class="tag tag--mot">Animation</span></div>
+          <h3>Built-up Surface Growth</h3>
+          <p>Built-up area accumulating across the district framework, rendered dark-field so new construction reads as light emerging from an unbuilt baseline. A deliberately legible format for slide decks and international briefings.</p>
+          <dl class="meta">
+            <div><dt>Layer</dt><dd>Built-up surface</dd></div>
+            <div><dt>Basemap</dt><dd>District boundaries</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <!-- 4 -->
+      <article class="card card--wide reveal" data-tags="hazard carto">
+        <button class="card__media" data-lightbox="assets/img/glacier-inventory-full.jpg"
+                data-caption="Pakistan Randolph Glacier Inventory 2000 — glacier area (km²) graduated across Northern Pakistan.">
+          <img src="assets/img/glacier-inventory.jpg" alt="Map of Northern Pakistan showing Randolph Glacier Inventory outlines graduated by area, with a table of the ten largest glaciers" loading="lazy" width="1000" height="707">
+          <span class="card__zoom" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M15.8 15.8L21 21M8.5 11h5M11 8.5v5"/></svg>
+            Full resolution
+          </span>
+        </button>
+        <div class="card__body">
+          <div class="card__tags"><span class="tag tag--haz">Hazard</span><span class="tag">Static map</span></div>
+          <h3>Pakistan Randolph Glacier Inventory</h3>
+          <p>Glacier outlines across the Karakoram, Hindu Kush and western Himalaya, graduated into five area classes and paired with a ranked table of the ten largest bodies — Siachen at 1,087.9&nbsp;km², Baltoro at 790&nbsp;km², Biafo at 532&nbsp;km². Pakistan's frozen water reserve, and the baseline layer for any glacial lake outburst flood or water-security assessment.</p>
+          <dl class="meta">
+            <div><dt>Source</dt><dd>Randolph Glacier Inventory</dd></div>
+            <div><dt>Symbology</dt><dd>Graduated · 5 classes, km²</dd></div>
+            <div><dt>Extent</dt><dd>Northern Pakistan</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <!-- 5 -->
+      <article class="card reveal" data-tags="hazard motion">
+        <div class="card__media card__media--video">
+          <video poster="assets/img/poster-glacier-velocity.jpg" muted loop playsinline preload="none">
+            <source src="assets/video/glacier-velocity.mp4" type="video/mp4">
+          </video>
+          <button class="playbtn" aria-label="Play animation"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></button>
+        </div>
+        <div class="card__body">
+          <div class="card__tags"><span class="tag tag--haz">Hazard</span><span class="tag tag--mot">Animation</span></div>
+          <h3>Pakistan Glaciers Velocity</h3>
+          <p>Surface-velocity signal across the northern glacier systems, animated over the district framework. Fast-moving tongues light up against the static mass — the diagnostic that separates a stable glacier from a surging one, and a leading indicator ahead of glacial lake outburst events.</p>
+          <dl class="meta">
+            <div><dt>Theme</dt><dd>Cryosphere dynamics</dd></div>
+            <div><dt>Output</dt><dd class="mono">MP4 · H.264 · 21 s</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <!-- 6 -->
+      <article class="card reveal" data-tags="exposure motion" data-delay="1">
+        <div class="card__media card__media--video">
+          <video poster="assets/img/poster-population-growth.jpg" muted loop playsinline preload="none">
+            <source src="assets/video/population-growth.mp4" type="video/mp4">
+          </video>
+          <button class="playbtn" aria-label="Play animation"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></button>
+        </div>
+        <div class="card__body">
+          <div class="card__tags"><span class="tag tag--exp">Exposure</span><span class="tag tag--mot">Animation</span></div>
+          <h3>Population &amp; Settlement Growth</h3>
+          <p>Population and settlement density building over the district network. Where the urbanisation animations show <em>surface</em>, this one shows <em>people</em> — the denominator for every casualty estimate, relief caseload and evacuation plan.</p>
+          <dl class="meta">
+            <div><dt>Layer</dt><dd>Population &amp; settlements</dd></div>
+            <div><dt>Use</dt><dd>Exposure &amp; vulnerability</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <!-- 7 -->
+      <article class="card card--wide reveal" data-tags="carto exposure">
+        <button class="card__media" data-lightbox="assets/img/wah-cantt-services-full.jpg"
+                data-caption="Wah Cantt — critical services and accessibility. OpenStreetMap features, EPSG:3857 / WGS 84 Pseudo-Mercator.">
+          <img src="assets/img/wah-cantt-services.jpg" alt="Detailed map of Wah Cantt showing hospitals, mosques, banks, bus stops, groceries, parks, tree cover, roads and educational institutions" loading="lazy" width="1000" height="707">
+          <span class="card__zoom" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M15.8 15.8L21 21M8.5 11h5M11 8.5v5"/></svg>
+            Full resolution
+          </span>
+        </button>
+        <div class="card__body">
+          <div class="card__tags"><span class="tag">Cartography</span><span class="tag tag--exp">Critical facilities</span></div>
+          <h3>Wah Cantt — Critical Services &amp; Accessibility</h3>
+          <p>Town-scale digitisation of the facilities that matter when something goes wrong: hospitals, banks, bus stops, groceries, schools, parks and tree cover, threaded onto the GT Road / Jinnah Avenue corridor. Each point class carries its own symbol and label so the sheet stays readable printed in greyscale — the level of detail a response planner actually needs, and a demonstration of OSM extraction, styling and labelling end to end.</p>
+          <dl class="meta">
+            <div><dt>Source</dt><dd>OpenStreetMap</dd></div>
+            <div><dt>CRS</dt><dd class="mono">EPSG:3857 · Pseudo-Mercator</dd></div>
+            <div><dt>Classes</dt><dd>9 feature types, individually symbolised</dd></div>
+          </dl>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────────── DASHBOARDS ──────────────────────── -->
+<section class="section section--alt" id="dashboards">
+  <div class="wrap">
+    <header class="shead reveal">
+      <p class="eyebrow">Live &amp; public</p>
+      <h2>Web dashboards in production</h2>
+      <p class="shead__sub">Built and maintained for <a href="https://ecoindus.org" target="_blank" rel="noopener">EcoIndus</a>, the nonprofit research initiative I co-founded to monitor environmental and socioeconomic risk in Pakistan. Python and Google Earth Engine on the back end, GitHub Pages on the front.</p>
+    </header>
+
+    <div class="dash-grid">
+      <a class="dash reveal" href="https://fati-00m.github.io/Pakistan-Deforestation-Tracker/" target="_blank" rel="noopener">
+        <span class="dash__ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 21v-4M12 17c-3.6 0-6.5-2.9-6.5-6.5S8.4 3 12 3s6.5 3.9 6.5 7.5S15.6 17 12 17z"/></svg>
+        </span>
+        <h3>Pakistan Deforestation Tracker</h3>
+        <p>Forest-loss monitoring built on Earth-observation time series, published as an open dashboard.</p>
+        <span class="dash__go">Open dashboard <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18L18 6M9 6h9v9"/></svg></span>
+      </a>
+
+      <a class="dash reveal" data-delay="1" href="https://fati-00m.github.io/Pakistan-Fire-Alerts-Dashboard/" target="_blank" rel="noopener">
+        <span class="dash__ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 3c3 4 5 5.5 5 9a5 5 0 11-10 0c0-2 1-3.2 2-4.4.6 1.4 1.4 2 2.2 2.2C11.6 7.6 11.4 5.4 12 3z"/></svg>
+        </span>
+        <h3>Pakistan Fire Alerts Dashboard</h3>
+        <p>Near-real-time active-fire alerting from satellite thermal detections, mapped for public use.</p>
+        <span class="dash__go">Open dashboard <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18L18 6M9 6h9v9"/></svg></span>
+      </a>
+
+      <a class="dash reveal" data-delay="2" href="https://fati-00m.github.io/Pakistan-Urbanization-Maps" target="_blank" rel="noopener">
+        <span class="dash__ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M4 20V9l5-3v14M9 20V6l6-3v17M15 20V10l5 3v7M3.5 20h17"/></svg>
+        </span>
+        <h3>Urbanisation &amp; Settlements</h3>
+        <p>Population, settlement and urban-extent products — the interactive companion to the maps above.</p>
+        <span class="dash__go">Open dashboard <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18L18 6M9 6h9v9"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ────────────────────────── METHOD ────────────────────────── -->
+<section class="section" id="method">
+  <div class="wrap method">
+    <div class="method__intro reveal">
+      <p class="eyebrow">How I work</p>
+      <h2>Method &amp; standards</h2>
+      <p class="shead__sub">A map is only useful if someone else can reproduce it and defend it. Every product above follows the same pipeline.</p>
+    </div>
+    <ol class="steps">
+      <li class="step reveal">
+        <span class="step__n mono">01</span>
+        <h3>Source &amp; validate</h3>
+        <p>Open, citable datasets only — global settlement layers, glacier inventories, OpenStreetMap, satellite archives. Provenance, vintage and licence recorded before a layer enters a project.</p>
+      </li>
+      <li class="step reveal" data-delay="1">
+        <span class="step__n mono">02</span>
+        <h3>Process &amp; verify</h3>
+        <p>Raster and vector geoprocessing in QGIS and Google Earth Engine, with Python where a step needs to repeat. Geometry, projection and attribute checks before styling begins.</p>
+      </li>
+      <li class="step reveal" data-delay="2">
+        <span class="step__n mono">03</span>
+        <h3>Design to standard</h3>
+        <p>Declared CRS, graticule, north arrow, scale bar, legend and date on every sheet. One symbology system across a series so products read as a coherent family, in colour or greyscale.</p>
+      </li>
+      <li class="step reveal" data-delay="3">
+        <span class="step__n mono">04</span>
+        <h3>Publish &amp; narrate</h3>
+        <p>Delivered as print sheets, web-encoded animations or hosted dashboards — each paired with plain-language framing so a non-technical reader gets the finding, not just the graphic.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ────────────────────────── SKILLS ────────────────────────── -->
+<section class="section section--alt" id="skills">
+  <div class="wrap">
+    <header class="shead reveal">
+      <p class="eyebrow">Toolchain</p>
+      <h2>Skills &amp; software</h2>
+    </header>
+    <div class="skill-grid">
+      <div class="skillset reveal">
+        <h3>Geospatial</h3>
+        <ul>
+          <li>QGIS <span class="mono">— layouts, geoprocessing, atlas, temporal controller</span></li>
+          <li>Google Earth Engine</li>
+          <li>Raster &amp; vector analysis</li>
+          <li>Georeferencing &amp; digitisation</li>
+          <li>Cartographic design &amp; symbology</li>
+          <li>Coordinate systems &amp; reprojection</li>
+        </ul>
+      </div>
+      <div class="skillset reveal" data-delay="1">
+        <h3>Data &amp; analysis</h3>
+        <ul>
+          <li>Python <span class="mono">— data workflows &amp; automation</span></li>
+          <li>Excel <span class="mono">— advanced analysis &amp; modelling</span></li>
+          <li>IBM SPSS Statistics</li>
+          <li>Statistical &amp; financial analysis</li>
+          <li>Research design &amp; documentation</li>
+        </ul>
+      </div>
+      <div class="skillset reveal" data-delay="2">
+        <h3>Web &amp; delivery</h3>
+        <ul>
+          <li>HTML / CSS / JavaScript</li>
+          <li>GitHub &amp; GitHub Pages</li>
+          <li>Dashboard &amp; portal development</li>
+          <li>WordPress</li>
+          <li>Video encoding &amp; motion output</li>
+        </ul>
+      </div>
+      <div class="skillset reveal" data-delay="3">
+        <h3>Communication</h3>
+        <ul>
+          <li>Technical &amp; executive reporting</li>
+          <li>Presentation design</li>
+          <li>Data storytelling for non-specialists</li>
+          <li>English, Urdu, Chinese</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="certs reveal">
+      <h3 class="certs__h">Certifications</h3>
+      <ul class="certs__list">
+        <li><strong>Mastering Geospatial Analysis with QGIS</strong> <span>L&amp;T EduTech</span></li>
+        <li><strong>IBM Data Analyst Professional Certificate</strong> <span>IBM</span></li>
+        <li><strong>Python for Data Science, AI &amp; Development</strong> <span>IBM</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────────── EXPERIENCE ──────────────────────── -->
+<section class="section" id="experience">
+  <div class="wrap">
+    <header class="shead reveal">
+      <p class="eyebrow">Background</p>
+      <h2>Experience &amp; education</h2>
+    </header>
+    <ol class="timeline">
+      <li class="tl reveal">
+        <div class="tl__when mono">Dec 2025 — Present</div>
+        <div class="tl__what">
+          <h3>Co-Founder &amp; Environmental Research Lead <span>EcoIndus</span></h3>
+          <p>Co-founded a nonprofit research initiative monitoring environmental and socioeconomic risk from climate emergencies in Pakistan. Built public dashboards on deforestation, fire alerts, population and settlements using Python, QGIS, Google Earth Engine and GitHub Pages, and translated technical findings into maps and narratives for non-technical audiences.</p>
+        </div>
+      </li>
+      <li class="tl reveal" data-delay="1">
+        <div class="tl__when mono">Apr 2024 — Dec 2024</div>
+        <div class="tl__what">
+          <h3>Business Development Officer <span>Enrichers Pvt. Ltd. — Commodities Trading</span></h3>
+          <p>Practical training in futures and commodities markets covering risk management, diversification and margin-based trading. Applied fundamental and technical analysis to evaluate market movements against daily outreach KPIs.</p>
+        </div>
+      </li>
+      <li class="tl reveal" data-delay="2">
+        <div class="tl__when mono">Dec 2023 — Feb 2024</div>
+        <div class="tl__what">
+          <h3>Business Development Officer <span>HelpTribe</span></h3>
+          <p>Lead generation and client outreach, with support on website content and online visibility.</p>
+        </div>
+      </li>
+      <li class="tl reveal" data-delay="3">
+        <div class="tl__when mono">Jul 2023 — Sep 2023</div>
+        <div class="tl__what">
+          <h3>Intern, Banking &amp; Finance <span>Askari Bank</span></h3>
+          <p>Account-opening documentation, journal voucher balancing, daily clearance reporting and cheque processing under compliance requirements.</p>
+        </div>
+      </li>
+      <li class="tl reveal" data-delay="4">
+        <div class="tl__when mono">2019 — Jan 2024</div>
+        <div class="tl__what">
+          <h3>BBA, Bachelor of Business Administration <span>COMSATS University Islamabad</span></h3>
+          <p>Financial management, financial statement analysis and valuation, investment and portfolio management, international finance and strategic management.</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ────────────────────────── CONTACT ───────────────────────── -->
+<section class="section contact" id="contact">
+  <div class="wrap contact__inner reveal">
+    <div>
+      <p class="eyebrow">Get in touch</p>
+      <h2>Available for geospatial &amp; analyst roles</h2>
+      <p class="contact__lede">Happy to walk through any product here — the data behind it, the processing chain, or how it was styled. Reach me by email, or download the full CV.</p>
+      <div class="contact__actions">
+        <a class="btn btn--solid" href="mailto:fatimamahmood1311@gmail.com">fatimamahmood1311@gmail.com</a>
+        <a class="btn btn--ghost" href="assets/docs/Fatima-Mahmood-CV.pdf" download>
+          <svg viewBox="0 0 24 24" aria-hidden="true" class="btn__i"><path d="M12 3v11m0 0l4-4m-4 4l-4-4M4 18.5h16"/></svg>
+          Download CV
+        </a>
+      </div>
+    </div>
+    <ul class="contact__links">
+      <li><a href="https://pk.linkedin.com/in/fatima-mahmood-b49736276" target="_blank" rel="noopener"><span class="mono">→</span> LinkedIn</a></li>
+      <li><a href="https://github.com/Fati-00M" target="_blank" rel="noopener"><span class="mono">→</span> GitHub</a></li>
+      <li><a href="https://ecoindus.org" target="_blank" rel="noopener"><span class="mono">→</span> EcoIndus</a></li>
+    </ul>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap foot__inner">
+    <p>&copy; <span id="yr">2026</span> Fatima Mahmood — Geospatial portfolio.</p>
+    <p class="mono">Maps produced in QGIS · Site hosted on GitHub Pages</p>
+  </div>
+</footer>
+
+<!-- lightbox -->
+<div class="lb" id="lightbox" role="dialog" aria-modal="true" aria-label="Map viewer" hidden>
+  <button class="lb__close" id="lbClose" aria-label="Close viewer">&times;</button>
+  <button class="lb__nav lb__nav--prev" id="lbPrev" aria-label="Previous map">&#8249;</button>
+  <button class="lb__nav lb__nav--next" id="lbNext" aria-label="Next map">&#8250;</button>
+  <figure class="lb__fig">
+    <img id="lbImg" alt="">
+    <figcaption id="lbCap"></figcaption>
+  </figure>
+</div>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

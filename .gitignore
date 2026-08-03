@@ -1,0 +1,25 @@
+# ── Application material (local only, never published) ──────────
+ndma_job.pdf
+*_job.pdf
+*job*.pdf
+
+# ── Raw QGIS exports / source media (local only) ────────────────
+# These are the originals straight out of QGIS (HEVC .mp4 + full-res .png).
+# The web-optimised copies that the site actually serves live in
+# assets/video/ and assets/img/ and ARE tracked — the site cannot
+# display media that isn't published.
+/*.mp4
+/*.png
+/*.tif
+/*.tiff
+/*.qgz
+/*.qgs
+/*.gpkg
+
+# ── OS / editor cruft ───────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+*~
+.vscode/
+.idea/
