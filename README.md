@@ -21,7 +21,8 @@ mapping, animated map products and public web-GIS dashboards.
 ```
 index.html                     the portfolio page
 maps/glof-risk.html            interactive Leaflet web-GIS viewer
-GLOF-WORKFLOW.md               how to build the GLOF risk product + wire it up
+BUILD-CHECKLIST.md             tickable build sheet for the GLOF product (start here)
+GLOF-WORKFLOW.md               the reasoning behind that plan
 assets/
   css/style.css                styles (light + dark themes)
   css/map.css                  map-tool chrome
