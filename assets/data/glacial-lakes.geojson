@@ -1,0 +1,1 @@
+{"type":"FeatureCollection","sample":true,"features":[{"type":"Feature","geometry":{"type":"Point","coordinates":[74.52,36.435]},"properties":{"name":"SAMPLE Lake A","area_km2":0.31,"hazard_class":"Potentially dangerous"}},{"type":"Feature","geometry":{"type":"Point","coordinates":[74.566,36.462]},"properties":{"name":"SAMPLE Lake B","area_km2":0.08,"hazard_class":"Moderate"}}]}

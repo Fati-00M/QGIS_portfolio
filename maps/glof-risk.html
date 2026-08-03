@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GLOF Risk Explorer — Hunza Valley | Fatima Mahmood</title>
+<meta name="description" content="Interactive web-GIS map of glacial lake outburst flood hazard, exposure and vulnerability in the Hunza valley, Gilgit-Baltistan.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/map.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2310192b'/%3E%3Cpath d='M6 21c4-7 8 3 12-4s5-6 8-8' stroke='%230d7a6f' stroke-width='2.2' fill='none' stroke-linecap='round'/%3E%3Cpath d='M6 26c4-7 8 3 12-4s5-6 8-8' stroke='%23c25a1e' stroke-width='2.2' fill='none' stroke-linecap='round' opacity='.75'/%3E%3C/svg%3E">
+</head>
+<body class="maptool">
+
+<header class="mapbar">
+  <a class="mapbar__back" href="../index.html">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
+    <span>Portfolio</span>
+  </a>
+  <div class="mapbar__title">
+    <h1>GLOF Risk Explorer</h1>
+    <p>Hunza valley, Gilgit&ndash;Baltistan &middot; hazard &times; exposure &times; vulnerability</p>
+  </div>
+  <div class="mapbar__actions">
+    <button class="themebtn" id="themeToggle" type="button" aria-label="Switch colour theme">
+      <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><g stroke-linecap="round"><path d="M12 2.6v2.4M12 19v2.4M21.4 12H19M5 12H2.6M18.6 5.4l-1.7 1.7M7.1 16.9l-1.7 1.7M18.6 18.6l-1.7-1.7M7.1 7.1L5.4 5.4"/></g></svg>
+      <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.2A8.2 8.2 0 019.8 4 8.4 8.4 0 1020 14.2z"/></svg>
+    </button>
+    <button class="panel-toggle" id="panelToggle" type="button" aria-label="Toggle panel" aria-expanded="true">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="maplayout">
+
+  <aside class="panel" id="panel">
+
+    <div class="sample-warn" id="sampleWarn" hidden>
+      <strong>Sample data.</strong> These layers are placeholders so the viewer runs.
+      Replace the files in <code>assets/data/</code> with your QGIS exports — the
+      banner clears itself once real data is in place.
+    </div>
+
+    <section class="panel__sec">
+      <h2 class="panel__h">Exposure summary</h2>
+      <dl class="stats" id="stats">
+        <div><dt>Population exposed</dt><dd id="statPop">—</dd></div>
+        <div><dt>Settlements in zone</dt><dd id="statSet">—</dd></div>
+        <div><dt>Critical facilities</dt><dd id="statFac">—</dd></div>
+        <div><dt>Source lakes</dt><dd id="statLake">—</dd></div>
+      </dl>
+    </section>
+
+    <section class="panel__sec">
+      <h2 class="panel__h">Layers</h2>
+      <div class="layerlist" id="layerList"></div>
+    </section>
+
+    <section class="panel__sec">
+      <h2 class="panel__h">Legend</h2>
+      <div class="legend" id="legend"></div>
+    </section>
+
+    <section class="panel__sec">
+      <h2 class="panel__h">Basemap</h2>
+      <div class="baselist" id="baseList"></div>
+    </section>
+
+    <section class="panel__sec panel__sec--note">
+      <h2 class="panel__h">Method &amp; limitations</h2>
+      <p>The potential impact zone is derived by thresholding <em>height above
+      nearest drainage</em> along modelled downstream flow paths. It is a
+      screening and prioritisation product, <strong>not</strong> a hydrodynamic
+      flood model, and must not be used for engineering design.</p>
+      <p class="panel__meta mono">EPSG:4326 · WGS 84</p>
+    </section>
+
+  </aside>
+
+  <main class="mapwrap">
+    <div id="map"></div>
+    <div class="map-loading" id="loading"><span class="spinner"></span> Loading layers…</div>
+  </main>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="../assets/js/glof-map.js"></script>
+</body>
+</html>

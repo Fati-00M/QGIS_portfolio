@@ -19,10 +19,15 @@ mapping, animated map products and public web-GIS dashboards.
 ## Repository layout
 
 ```
-index.html                     the whole site
+index.html                     the portfolio page
+maps/glof-risk.html            interactive Leaflet web-GIS viewer
+GLOF-WORKFLOW.md               how to build the GLOF risk product + wire it up
 assets/
   css/style.css                styles (light + dark themes)
+  css/map.css                  map-tool chrome
   js/main.js                   nav, filters, video players, lightbox
+  js/glof-map.js               Leaflet viewer (config-driven, edit the top)
+  data/                        GeoJSON layers for the viewer
   img/                         web-optimised map JPGs + video poster frames
   video/                       web-optimised H.264 MP4s
 .nojekyll                      serve files as-is, no Jekyll processing

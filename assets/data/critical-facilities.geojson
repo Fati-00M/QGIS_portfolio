@@ -1,0 +1,1 @@
+{"type":"FeatureCollection","sample":true,"features":[{"type":"Feature","geometry":{"type":"Point","coordinates":[74.64,36.32]},"properties":{"name":"SAMPLE Bridge","amenity":"Bridge \u2014 KKH"}},{"type":"Feature","geometry":{"type":"Point","coordinates":[74.661,36.311]},"properties":{"name":"SAMPLE Health facility","amenity":"Hospital"}}]}

@@ -1,0 +1,1 @@
+{"type":"FeatureCollection","sample":true,"features":[{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[74.512,36.44],[74.532,36.442],[74.6,36.36],[74.646,36.318],[74.652,36.306],[74.638,36.301],[74.592,36.348],[74.524,36.43],[74.512,36.44]]]},"properties":{"lake":"SAMPLE Lake A","method":"HAND threshold \u2014 PLACEHOLDER"}}]}
