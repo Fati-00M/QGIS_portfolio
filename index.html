@@ -78,7 +78,7 @@
       </video>
       <figcaption>
         <span class="mono">FIG. 01</span>
-        Pakistan urban extent, 1975&ndash;2030 &middot; GHSL degree-of-urbanisation classes
+        Pakistan urban extent, 1975&ndash;2030 &middot; GHSL shapefiles at 5-year intervals
       </figcaption>
     </figure>
   </div>
@@ -116,11 +116,12 @@
         <div class="card__body">
           <div class="card__tags"><span class="tag tag--exp">Exposure</span><span class="tag">Static map</span></div>
           <h3>Pakistan Urban Extent — 2030 Projection</h3>
-          <p>National settlement classification projected to 2030, separating urban centres from dense clusters, semi-dense zones and suburban fringe. The banded pattern along the Indus corridor and the Punjab plain shows where future exposure concentrates — the same footprint that determines flood, heat and seismic risk for the next decade.</p>
+          <p>Built from GHSL urban extent shapefiles clipped to Pakistan, then classified with categorized symbology into urban centre, dense cluster, semi-dense and suburban, and composed as a print sheet in the QGIS Print Layout. The banded pattern along the Indus corridor and the Punjab plain shows where future exposure concentrates — the same footprint that determines flood, heat and seismic risk for the next decade.</p>
           <dl class="meta">
-            <div><dt>Tool</dt><dd>QGIS Print Layout</dd></div>
+            <div><dt>Source</dt><dd>GHSL urban extent shapefiles</dd></div>
+            <div><dt>Symbology</dt><dd>Categorized · 4 classes</dd></div>
+            <div><dt>Layout</dt><dd>QGIS Print Layout</dd></div>
             <div><dt>CRS</dt><dd class="mono">EPSG:4326 · WGS 84</dd></div>
-            <div><dt>Classes</dt><dd>Urban centre · Dense cluster · Semi-dense · Suburban</dd></div>
           </dl>
         </div>
       </article>
@@ -136,10 +137,10 @@
         <div class="card__body">
           <div class="card__tags"><span class="tag tag--exp">Exposure</span><span class="tag tag--mot">Animation</span></div>
           <h3>Urban Extent Growth, 1975&ndash;2030</h3>
-          <p>The static projection above, animated. Built from GHSL shapefiles and driven by QGIS dynamic temporal settings, so a year counter steps the settlement classification forward and a viewer watches the urban fabric thicken along the Indus rather than reading it from a table.</p>
+          <p>The static projection above, animated. One GHSL urban extent shapefile per 5-year interval, each given a dynamic temporal date in QGIS so the temporal controller steps the whole series forward. A viewer watches the urban fabric thicken along the Indus instead of reading it from a table.</p>
           <dl class="meta">
-            <div><dt>Span</dt><dd>1975 &rarr; 2030</dd></div>
-            <div><dt>Source</dt><dd>GHSL shapefiles</dd></div>
+            <div><dt>Source</dt><dd>GHSL urban extent shapefiles</dd></div>
+            <div><dt>Span</dt><dd>1975 &rarr; 2030 · 5-year steps</dd></div>
             <div><dt>Method</dt><dd>QGIS dynamic temporal settings</dd></div>
           </dl>
         </div>
@@ -156,10 +157,11 @@
         <div class="card__body">
           <div class="card__tags"><span class="tag tag--exp">Exposure</span><span class="tag tag--mot">Animation</span></div>
           <h3>Built-up Surface Growth</h3>
-          <p>Built-up area accumulating across the district framework, rendered dark-field so new construction reads as light emerging from an unbuilt baseline. A deliberately legible format for slide decks and international briefings.</p>
+          <p>The GHSL built-up surface pulled from Google Earth Engine by a Python script I wrote in Google Colab with Codex, exporting Pakistan-only rasters for the full series. Each raster was then given a dynamic temporal date in QGIS to drive the animation. Rendered dark-field so new construction reads as light emerging from an unbuilt baseline — a deliberately legible format for slide decks and international briefings.</p>
           <dl class="meta">
+            <div><dt>Source</dt><dd>GHSL via Google Earth Engine</dd></div>
+            <div><dt>Script</dt><dd>Python (Codex) in Google Colab</dd></div>
             <div><dt>Span</dt><dd>1975 &rarr; 2030</dd></div>
-            <div><dt>Layer</dt><dd>Built-up surface</dd></div>
             <div><dt>Method</dt><dd>QGIS dynamic temporal settings</dd></div>
           </dl>
         </div>
@@ -178,11 +180,12 @@
         <div class="card__body">
           <div class="card__tags"><span class="tag tag--haz">Hazard</span><span class="tag">Static map</span></div>
           <h3>Pakistan Randolph Glacier Inventory</h3>
-          <p>Glacier outlines across the Karakoram, Hindu Kush and western Himalaya, graduated into five area classes and paired with a ranked table of the ten largest bodies — Siachen at 1,087.9&nbsp;km², Baltoro at 790&nbsp;km², Biafo at 532&nbsp;km². Pakistan's frozen water reserve, and the baseline layer for any glacial lake outburst flood or water-security assessment.</p>
+          <p>RGI version 7 shapefiles for the South Asia West region, clipped by mask layer to a Pakistan boundary, then classified with graduated symbology into five area classes and composed in the QGIS Print Layout. Paired with a ranked table of the ten largest bodies — Siachen at 1,087.9&nbsp;km², Baltoro at 790&nbsp;km², Biafo at 532&nbsp;km². RGI v7 approximates glacier area to the year 2000, giving a fixed baseline for any glacial lake outburst flood or water-security assessment.</p>
           <dl class="meta">
-            <div><dt>Source</dt><dd>Randolph Glacier Inventory</dd></div>
+            <div><dt>Source</dt><dd>RGI v7 · South Asia West · ~2000</dd></div>
+            <div><dt>Clip</dt><dd>Pakistan boundary mask layer</dd></div>
             <div><dt>Symbology</dt><dd>Graduated · 5 classes, km²</dd></div>
-            <div><dt>Extent</dt><dd>Northern Pakistan</dd></div>
+            <div><dt>Layout</dt><dd>QGIS Print Layout</dd></div>
           </dl>
         </div>
       </article>
@@ -198,10 +201,12 @@
         <div class="card__body">
           <div class="card__tags"><span class="tag tag--haz">Hazard</span><span class="tag tag--mot">Animation</span></div>
           <h3>Pakistan Glaciers Velocity</h3>
-          <p>Surface-velocity signal across the northern glacier systems, animated over the district framework. Fast-moving tongues light up against the static mass — the diagnostic that separates a stable glacier from a surging one, and a leading indicator ahead of glacial lake outburst events.</p>
+          <p>Forty annual ITS_LIVE surface-velocity rasters for the South Asia West region, downloaded for every year from 1986 to 2026, each clipped by mask extent to a Pakistan boundary shapefile and assigned a dynamic temporal date to drive the animation. Fast-moving tongues light up against the static mass — the diagnostic that separates a stable glacier from a surging one, and a leading indicator ahead of glacial lake outburst events.</p>
           <dl class="meta">
-            <div><dt>Theme</dt><dd>Cryosphere dynamics</dd></div>
-            <div><dt>Output</dt><dd class="mono">MP4 · H.264 · 21 s</dd></div>
+            <div><dt>Source</dt><dd>ITS_LIVE · South Asia West</dd></div>
+            <div><dt>Span</dt><dd>1986 &rarr; 2026 · 40 annual rasters</dd></div>
+            <div><dt>Clip</dt><dd>Pakistan boundary mask extent</dd></div>
+            <div><dt>Method</dt><dd>QGIS dynamic temporal settings</dd></div>
           </dl>
         </div>
       </article>
@@ -217,10 +222,11 @@
         <div class="card__body">
           <div class="card__tags"><span class="tag tag--exp">Exposure</span><span class="tag tag--mot">Animation</span></div>
           <h3>Population &amp; Settlement Growth</h3>
-          <p>Population and settlement density building over the district network. Where the urbanisation animations show <em>surface</em>, this one shows <em>people</em> — the denominator for every casualty estimate, relief caseload and evacuation plan.</p>
+          <p>GHSL population rasters pulled from Google Earth Engine by a Python script run in Google Colab, then animated in QGIS with dynamic temporal dates across the series. Where the urbanisation animations show <em>surface</em>, this one shows <em>people</em> — the denominator for every casualty estimate, relief caseload and evacuation plan.</p>
           <dl class="meta">
+            <div><dt>Source</dt><dd>GHSL via Google Earth Engine</dd></div>
+            <div><dt>Script</dt><dd>Python in Google Colab</dd></div>
             <div><dt>Span</dt><dd>1975 &rarr; 2030</dd></div>
-            <div><dt>Layer</dt><dd>Population &amp; settlements</dd></div>
             <div><dt>Method</dt><dd>QGIS dynamic temporal settings</dd></div>
           </dl>
         </div>
@@ -229,7 +235,7 @@
       <!-- 7 -->
       <article class="card card--wide reveal" data-tags="carto exposure">
         <button class="card__media" data-lightbox="assets/img/wah-cantt-services-full.jpg"
-                data-caption="Wah Cantt — critical services and accessibility. OpenStreetMap features, EPSG:3857 / WGS 84 Pseudo-Mercator.">
+                data-caption="Wah Cantt — critical services and accessibility. Vector layers digitised over the OpenStreetMap Standard basemap, EPSG:3857 / WGS 84 Pseudo-Mercator.">
           <img src="assets/img/wah-cantt-services.jpg" alt="Detailed map of Wah Cantt showing hospitals, mosques, banks, bus stops, groceries, parks, tree cover, roads and educational institutions" loading="lazy" width="1000" height="707">
           <span class="card__zoom" aria-hidden="true">
             <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M15.8 15.8L21 21M8.5 11h5M11 8.5v5"/></svg>
@@ -239,11 +245,13 @@
         <div class="card__body">
           <div class="card__tags"><span class="tag">Cartography</span><span class="tag tag--exp">Critical facilities</span></div>
           <h3>Wah Cantt — Critical Services &amp; Accessibility</h3>
-          <p>Town-scale digitisation of the facilities that matter when something goes wrong: hospitals, banks, bus stops, groceries, schools, parks and tree cover, threaded onto the GT Road / Jinnah Avenue corridor. Each point class carries its own symbol and label so the sheet stays readable printed in greyscale — the level of detail a response planner actually needs, and a demonstration of OSM extraction, styling and labelling end to end.</p>
+          <p>Every feature on this sheet was digitised by hand over the OpenStreetMap Standard basemap — six point layers for banks, bus stops, hospitals, groceries, educational institutions and mosques, a polyline layer for roads, and polygon layers for parks and tree cover, all threaded onto the GT Road / Jinnah Avenue corridor and composed in the QGIS Print Layout. Each class carries its own symbol and label so the sheet stays readable printed in greyscale: the level of detail a response planner actually needs, and a demonstration of vector creation, styling and labelling end to end.</p>
           <dl class="meta">
-            <div><dt>Source</dt><dd>OpenStreetMap</dd></div>
+            <div><dt>Basemap</dt><dd>OpenStreetMap Standard</dd></div>
+            <div><dt>Method</dt><dd>Manual digitisation — point, line &amp; polygon</dd></div>
+            <div><dt>Layers</dt><dd>6 point · 1 polyline · 2 polygon</dd></div>
+            <div><dt>Layout</dt><dd>QGIS Print Layout</dd></div>
             <div><dt>CRS</dt><dd class="mono">EPSG:3857 · Pseudo-Mercator</dd></div>
-            <div><dt>Classes</dt><dd>9 feature types, individually symbolised</dd></div>
           </dl>
         </div>
       </article>
@@ -315,6 +323,7 @@
         <h3>Data &amp; analysis</h3>
         <ul>
           <li>Python <span class="mono">— data workflows &amp; automation</span></li>
+          <li>Google Colab <span class="mono">— Earth Engine export scripting</span></li>
           <li>Excel <span class="mono">— advanced analysis &amp; modelling</span></li>
           <li>IBM SPSS Statistics</li>
           <li>Statistical &amp; financial analysis</li>

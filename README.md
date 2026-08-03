@@ -93,18 +93,26 @@ Copy an existing `<article class="card">` block in `index.html` and edit it. The
 
 ---
 
-## Verify before applying for a role
+## Method notes
 
-A few descriptive details on the site were inferred from the map graphics themselves.
-Confirm they match your actual workflow, and edit `index.html` if not:
+Each project card documents its own workflow, confirmed by the author:
 
-- The urbanisation class names (`urban_centre`, `dense_cluster`, `semi_dense`, `suburban`)
-  are described as **GHSL degree-of-urbanisation** classes.
-- The **Glaciers Velocity** animation is described generically ("surface-velocity signal")
-  because the source dataset isn't labelled on the graphic — name it if you want the credit.
-- Project counts in the hero (`7` products, `3` dashboards) — update if you add more.
-- The three GHSL animations are labelled **1975–2030**; the glaciers velocity clip has no
-  span shown because its period wasn't confirmed. Add one if you know it.
+| Product | Source | Method |
+| ------- | ------ | ------ |
+| Urban Extent 2030 | GHSL urban extent shapefiles | Categorized symbology, QGIS Print Layout |
+| Urban Extent Growth | GHSL shapefiles, 5-year intervals | QGIS dynamic temporal settings |
+| Built-up Growth | GHSL via Google Earth Engine | Python (Codex) in Google Colab, then QGIS temporal |
+| Population Growth | GHSL via Google Earth Engine | Python in Google Colab, then QGIS temporal |
+| Glacier Inventory | RGI v7, South Asia West (~2000) | Clipped to Pakistan, graduated symbology, Print Layout |
+| Glaciers Velocity | ITS_LIVE, South Asia West | 40 annual rasters 1986-2026, clipped, QGIS temporal |
+| Wah Cantt | OpenStreetMap Standard basemap | Manual digitisation of 9 vector layers, Print Layout |
+
+Still worth checking before you send the link anywhere:
+
+- Project counts in the hero (`7` products, `3` dashboards) - update if you add more.
+- The built-up card names Codex as the tool used to write the extraction script.
+  The NDMA job description asks for AI-based tooling, so it is stated deliberately;
+  remove it from `index.html` if you would rather not mention it.
 
 ---
 
