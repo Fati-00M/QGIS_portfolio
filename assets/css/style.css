@@ -161,12 +161,20 @@ svg{fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-l
   font-size:clamp(2.35rem,5.3vw,4.1rem);line-height:1.07;letter-spacing:-.028em;
   margin-bottom:1.5rem;max-width:15ch;
 }
-.hero__title em{font-style:normal;color:var(--accent-ink);position:relative;white-space:nowrap}
-[data-theme="dark"] .hero__title em{color:var(--accent)}
-.hero__title em::after{
-  content:"";position:absolute;left:0;right:0;bottom:.06em;height:.11em;
-  background:color-mix(in srgb,var(--accent-2) 42%,transparent);border-radius:2px;z-index:-1;
+.hero__title em{
+  font-style:normal;color:var(--accent-ink);
+  /* Painted underline instead of a pseudo-element so it follows the text when
+     the heading wraps. box-decoration-break:clone gives every line fragment
+     its own band; without it the background is sliced across the whole run. */
+  background-image:linear-gradient(color-mix(in srgb,var(--accent-2) 45%,transparent) 0 100%);
+  background-size:100% .095em;
+  background-position:0 94%;
+  background-repeat:no-repeat;
+  -webkit-box-decoration-break:clone;
+  box-decoration-break:clone;
+  padding-bottom:.07em;
 }
+[data-theme="dark"] .hero__title em{color:var(--accent)}
 .hero__lede{color:var(--ink-2);font-size:1.075rem;line-height:1.75;max-width:56ch}
 .hero__lede strong{color:var(--ink);font-weight:600}
 .hero__cta{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem}

@@ -80,8 +80,20 @@
           revObs.unobserve(en.target);
         }
       });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+    }, { rootMargin: '0px 0px -30px 0px', threshold: 0 });
     revealables.forEach(function (el) { revObs.observe(el); });
+
+    // Failsafe: never leave content invisible on very tall viewports or if
+    // the observer misses something. Anything already on screen gets shown.
+    var sweep = function () {
+      revealables.forEach(function (el) {
+        if (el.classList.contains('is-in')) return;
+        var r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight && r.bottom > 0) el.classList.add('is-in');
+      });
+    };
+    window.addEventListener('load', sweep);
+    setTimeout(sweep, 1200);
   }
 
   /* ── hero video: autoplay only when visible ────────────── */
