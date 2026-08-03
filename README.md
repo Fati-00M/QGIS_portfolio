@@ -25,7 +25,6 @@ assets/
   js/main.js                   nav, filters, video players, lightbox
   img/                         web-optimised map JPGs + video poster frames
   video/                       web-optimised H.264 MP4s
-  docs/Fatima-Mahmood-CV.pdf   downloadable CV
 .nojekyll                      serve files as-is, no Jekyll processing
 .gitignore                     keeps raw QGIS exports out of the repo
 ```
@@ -99,6 +98,8 @@ Confirm they match your actual workflow, and edit `index.html` if not:
 - The **Glaciers Velocity** animation is described generically ("surface-velocity signal")
   because the source dataset isn't labelled on the graphic — name it if you want the credit.
 - Project counts in the hero (`7` products, `3` dashboards) — update if you add more.
+- The three GHSL animations are labelled **1975–2030**; the glaciers velocity clip has no
+  span shown because its period wasn't confirmed. Add one if you know it.
 
 ---
 
