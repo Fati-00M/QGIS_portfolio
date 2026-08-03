@@ -1,238 +1,197 @@
-# Building the GLOF risk product
+# GLOF risk product — the 2-day plan
 
-A step-by-step plan for the one thing this portfolio is missing: a product that
-overlays **hazard × exposure × vulnerability** instead of showing them separately.
+You have two days and you want the analysis to be genuinely yours. This is
+scoped for that. The earlier version of this document assumed 3–5 days; the
+hydrology step in it (HAND rasters via GRASS `r.watershed` / `r.stream.distance`)
+is where that time goes, and it is the step most likely to strand you halfway.
 
----
-
-## 0. Pick one valley, not the whole country
-
-Do **Hunza — Shishper / Hassanabad** first.
-
-Why this one:
-
-- Shishper glacier surged and produced repeated GLOFs from 2019 onward.
-- The **May 2022 event destroyed the Hassanabad bridge on the Karakoram Highway**
-  and damaged two small power houses. It is well documented in news and literature.
-- That gives you something almost no portfolio piece has: a **hindcast you can
-  validate**. You model the potential impact zone, then show the 2022 damage
-  falling inside it. "Model reproduces observed damage" is a far stronger claim
-  than "here is a map".
-- It is also a national-interest corridor — the KKH is the CPEC route — so the
-  significance needs no explaining to a Pakistani panel.
-
-One valley done rigorously beats a national map done thinly. You can extend later.
+**It has been cut.** What replaces it is simpler, defensible, and — critically —
+finishable. Read §6 before you start: it is the paragraph that makes the simpler
+method honest rather than sloppy.
 
 ---
 
-## 1. Data to collect
+## What you are building
 
-| Layer | Source | Notes |
-| ----- | ------ | ----- |
-| Glacial lakes | **ICIMOD Regional Database System** (rds.icimod.org) — HKH glacial lake inventory | Has potentially dangerous glacial lake (PDGL) attributes |
-| Glaciers | **RGI** (GLIMS / NSIDC) | You already have this layer |
-| DEM | **Copernicus GLO-30** (30 m) via OpenTopography, or NASADEM / SRTM | Copernicus GLO-30 is the best free option |
-| Population | **GHS-POP** (100 m) or **WorldPop** Pakistan constrained 100 m | You already work with GHSL |
-| Buildings | **Microsoft Global ML Building Footprints**, or OSM buildings | Pakistan is covered |
-| Critical facilities | **OSM** via the QuickOSM plugin | hospitals, schools, bridges, power |
-| Roads | OSM | KKH is the one that matters here |
-| Rivers | **HydroSHEDS / HydroRIVERS** | for the drainage network |
-| Admin boundaries | **OCHA COD** on HDX (Pakistan admin 0–3) | authoritative, and what humanitarian agencies use |
-| District vulnerability indicators | **PBS Census 2023** district tables; **Pakistan MPI** (UNDP/PBS) | for the vulnerability index |
+> A settlement-level GLOF risk ranking for the Hunza valley, combining glacial
+> lake hazard, downstream population exposure, and access-based vulnerability
+> into one score — delivered as a print sheet and an interactive web map.
 
-Record source, vintage and licence for every layer as you download it — you will
-need a data-sources box on the final sheet, and it is exactly the "data quality
-and documentation" the job description asks for.
+Two artefacts, one dataset, one valley.
+
+**Why Hunza / Shishper:** the glacier surged repeatedly from 2019, and the May
+2022 GLOF destroyed the Hassanabad bridge on the Karakoram Highway. That gives
+you a validation check almost no portfolio has — you can show the 2022 damage
+falling inside your modelled corridor. It is also the CPEC route, so nobody on
+the panel needs the significance explained.
 
 ---
 
-## 2. Hazard — where could the flood go?
+## The key simplification
 
-You are **not** building a hydrodynamic model. Say so plainly on the map; calling
-the output a *potential impact zone* rather than a *flood model* is a credibility
-signal, not a weakness.
+Instead of modelling flood depth, you model a **potential impact corridor**:
+the drainage path downstream of each hazardous lake, buffered.
 
-1. **Select the source lakes.** From the ICIMOD inventory, take moraine-dammed
-   lakes above a size threshold (a common cut is > 0.02 km²) in the Hunza basin.
-   Keep the PDGL flag as an attribute.
+This is a *screening* method. It tells you who is in the path and in what order
+of priority. It does not tell you how deep the water gets. That is a completely
+normal thing for a screening product to do — provided you say so, which §6 covers.
 
-2. **Condition the DEM.** `Fill sinks` (SAGA or GRASS `r.fill.dir`).
-
-3. **Derive the drainage network.** GRASS `r.watershed` on the filled DEM →
-   gives flow accumulation and drainage direction.
-
-4. **Trace the downstream path.** GRASS `r.drain`, starting at each lake outlet,
-   following the drainage direction raster. That is your flood routing line.
-
-5. **Build the impact envelope.** Two options, easiest first:
-
-   - **HAND threshold (recommended).** Compute *Height Above Nearest Drainage*
-     (GRASS `r.stream.distance` with `-d`, using the stream network from step 3).
-     Reclassify to keep valley floor below roughly **10–25 m** above the channel.
-     Intersect with a downstream distance limit from each lake. That envelope is
-     your potential impact zone.
-   - **Angle-of-reach rule.** Debris flows generally stop where the straight-line
-     slope from the source drops below about **5–11°**. Build it from the DEM and
-     the lake elevation. More defensible in the literature, more work in QGIS.
-
-   Whichever you use, **state the parameter values on the map.** A reviewer who
-   can see your threshold trusts the map more than one who cannot.
-
-6. **Validate.** Overlay the 2022 Hassanabad damage locations (bridge, power
-   houses — georeference them from news imagery or OSM). Show them inside your
-   envelope. This single step is what turns the piece from a graphic into
-   analysis.
+The analysis unit is the **settlement**, not the district. This matters for your
+deadline: settlement points come straight from OSM, so you skip census joins and
+admin-boundary matching entirely. That decision alone saves you most of a day.
 
 ---
 
-## 3. Exposure — what is inside the zone?
+## Day 1 — analysis
 
-Clip everything to the impact zone and count:
+### Morning: collect (2–3 hrs)
 
-- **Population** — `Zonal statistics` (sum) on GHS-POP / WorldPop.
-- **Buildings** — `Count points in polygon` on building centroids.
-- **Critical facilities** — hospitals, schools, bridges, power infrastructure.
-- **Roads** — `Sum line lengths` for km of KKH and link roads affected.
+| Layer | Where | Notes |
+| ----- | ----- | ----- |
+| Glacial lakes | **ICIMOD RDS** (rds.icimod.org) — HKH inventory | If it fights you, digitise them yourself — see below |
+| Rivers / streams | **QuickOSM** → `waterway = river, stream` | Faster than deriving from a DEM |
+| Settlements | **QuickOSM** → `place = city, town, village, hamlet` | These are your analysis units |
+| Hospitals | **QuickOSM** → `amenity = hospital, clinic` | For the vulnerability score |
+| Roads | **QuickOSM** → `highway = primary, secondary, trunk` | KKH is the one that matters |
+| Population | **GHS-POP** | You already know this dataset |
+| Glaciers | **RGI v7** | You already have it clipped |
 
-These numbers are your headline. *"N people, M buildings and X km of the KKH sit
-inside the potential impact zone of K hazardous lakes."*
+**Bound the whole job to the Hunza basin before you do anything else.** Clip
+every layer to it. Everything downstream is faster on a small extent.
 
----
+> **If the lake inventory is slow to get, digitise the lakes yourself.** Load Esri
+> World Imagery, find the proglacial lakes below Shishper and its neighbours, and
+> draw ~10 polygons. Thirty to forty minutes. You have already proven you can
+> digitise cleanly — the Wah Cantt sheet is entirely hand-digitised — and this
+> route makes the hazard layer unambiguously your own work. It is the option I
+> would pick.
 
-## 4. Vulnerability — the part almost everyone skips
+### Afternoon: the overlay (3–4 hrs)
 
-Exposure is *who is there*. Vulnerability is *who gets hurt worst*. Most portfolio
-maps stop at exposure — doing this step is the whole reason this product is worth
-building.
+This is the actual analysis. Six QGIS operations:
 
-Pick 4–6 indicators you can actually source per union council or district:
+1. **Select the source lakes.** Filter to lakes above a size threshold — `> 0.02 km²`
+   is a common cut. Add an `area_km2` field with `$area / 1000000`.
 
-- Travel time or distance to the nearest hospital
-- Single-access settlements (one road in, cut by the flood path = stranded)
-- Multidimensional poverty rate (Pakistan MPI, district level)
-- Dependency ratio — under-15 and over-64 share (Census 2023)
-- Building material / construction type, if you can get it
-- Literacy rate, as an early-warning-reach proxy
+2. **Trace the corridor.** Select the `waterway` lines running downstream from
+   your lakes to the Hunza River confluence. Selecting them by hand is fine and
+   takes ten minutes. Merge into one line layer.
 
-Then:
+3. **Buffer it.** `Vector → Geoprocessing → Buffer`, **500 m**, dissolved.
+   That polygon is your **potential impact corridor**. Write the 500 m on the map.
 
-1. Normalise each indicator to **0–1** (field calculator; invert the ones where
-   high = good).
-2. Weight them — equal weights are fine and honest. **Write the weights on the map.**
-3. Sum to a **Vulnerability Index** per unit.
+4. **Exposure — population.** `Raster → Zonal Statistics` with GHS-POP over the
+   corridor gives total population exposed. For per-settlement figures, buffer
+   each settlement point by 1 km and run zonal statistics on those.
 
----
+5. **Vulnerability — two indicators, both native QGIS, no external data:**
+   - `Processing → Join attributes by nearest` — settlements → hospitals. Gives
+     each settlement a distance to the nearest hospital.
+   - `Join attributes by nearest` again — settlements → roads. Distance to the
+     road network, i.e. how reachable relief is.
 
-## 5. Risk — combine
+   Two indicators is enough. Do not go hunting for census tables today.
 
-```
-Risk = normalised(Hazard) × normalised(Exposure) × normalised(Vulnerability)
-```
+6. **Score it.** Add fields via the field calculator, normalising each to 0–1:
 
-Classify into 5 classes (natural breaks / Jenks). This is the standard
-UNDRR / IPCC framing — use those words in the legend and title, because they are
-the exact words in the job description.
+   ```
+   haz  = 1 - ("dist_to_lake"  / maximum("dist_to_lake"))
+   exp  =      "pop_1km"       / maximum("pop_1km")
+   vul  = (   "dist_hospital"  / maximum("dist_hospital")
+            + "dist_road"      / maximum("dist_road") ) / 2
 
----
+   risk_score = "haz" * "exp" * "vul"
+   ```
 
-## 6. What to deliver
+   Then `risk_class` = 1–5 via graduated symbology, natural breaks.
 
-Three artefacts, all in the visual style you already established:
+   Sort descending on `risk_score` → **that is your top-10 table.**
 
-1. **One A3 print sheet.** Neatline, graticule, declared CRS, north arrow, scale
-   bar, date, legend, **method box** (your thresholds and weights) and **data
-   sources box**. Match the styling of your glacier inventory sheet so the two
-   read as a family.
-2. **A ranked table** of the top 10 most at-risk settlements — same treatment as
-   the top-10 glaciers table on your inventory map. Panels remember tables.
-3. **The interactive Leaflet version** — see below. Same data, clickable.
+### Evening: export for the web (1 hr)
 
-Then add a short paragraph to the portfolio card stating the limitation openly:
-*"Potential impact zone derived from HAND thresholding, not hydrodynamic
-modelling; intended for screening and prioritisation, not engineering design."*
-That sentence will impress a technical reviewer more than any styling choice.
+Reproject to **EPSG:4326**, simplify at `0.0001`, drop unused columns, export
+GeoJSON at coordinate precision 6, into `assets/data/`:
 
----
+| File | Geometry | Attributes |
+| ---- | -------- | ---------- |
+| `glacial-lakes.geojson` | polygon | `name`, `area_km2`, `hazard_class` |
+| `impact-zone.geojson` | polygon | `lake`, `method` |
+| `settlements.geojson` | point | `name`, `population`, `type` |
+| `critical-facilities.geojson` | point | `name`, `amenity` |
+| `risk-units.geojson` | point or polygon | `name`, `pop_exposed`, `risk_score`, `risk_class` |
 
-## 7. Exporting for the web map
-
-For each layer you want interactive, in QGIS:
-
-1. **Reproject to EPSG:4326** (`Reproject layer`). Leaflet needs lat/long.
-2. **Simplify** geometry (`Vector → Geometry Tools → Simplify`, tolerance around
-   `0.0001`). Detail you cannot see at web zoom is just file size.
-3. **Delete attribute columns you do not need.** Keep name, population, class,
-   score — drop the rest.
-4. **Export → Save Features As… → GeoJSON**, coordinate precision **6**.
-5. Save into `assets/data/` using these exact filenames:
-
-   | File | Geometry | Attributes the viewer expects |
-   | ---- | -------- | ----------------------------- |
-   | `glacial-lakes.geojson` | point or polygon | `name`, `area_km2`, `hazard_class` |
-   | `impact-zone.geojson` | polygon | `lake`, `method` |
-   | `settlements.geojson` | point | `name`, `population`, `type` |
-   | `critical-facilities.geojson` | point | `name`, `amenity` |
-   | `risk-units.geojson` | polygon | `name`, `pop_exposed`, `risk_score`, `risk_class` |
-
-   Attribute names are configurable at the top of `assets/js/glof-map.js` if
-   yours differ — no need to rename columns in QGIS.
-
-Keep the total under about **5 MB**. If a layer refuses to shrink, either
-aggregate it to admin units or turn the raster into a PNG overlay instead.
-
-Population raster too big for GeoJSON? Two options: aggregate it into
-`risk-units.geojson` as a `pop_exposed` column (best), or export a georeferenced
-PNG and add it as a Leaflet `ImageOverlay`.
+Names differ? Do not rename anything in QGIS — the viewer's `CONFIG` declares
+field names, see §7.
 
 ---
 
-## 8. The interactive viewer is already built
+## Day 2 — delivery
 
-`maps/glof-risk.html` is ready and running. Open it locally with:
+### Morning: the print sheet (3 hrs)
 
-```bash
-python3 -m http.server 8000
-# → http://localhost:8000/maps/glof-risk.html
-```
+Same treatment as your glacier inventory sheet, so the two read as a family:
+neatline, graticule, declared CRS, north arrow, scale bar, date, legend.
 
-It currently renders **placeholder** layers so you can see it work. Every file in
-`assets/data/` carries a `"sample": true` key, which is what triggers the orange
-warning banner. When you overwrite them with real QGIS exports that key is gone
-and **the banner disappears on its own** — nothing to remember.
+Two boxes your other sheets do not have, and which are the whole point:
 
-What it already does: terrain / street / satellite basemaps, layer toggles with
-feature counts, a risk-class choropleth, click-through attribute popups, a legend
-built from whatever loaded, live exposure totals, a coordinate readout, scale bar,
-light/dark themes shared with the main site, and a mobile slide-out panel. Layers
-that are missing degrade to "not found" instead of breaking the page.
+- **Method box** — "Potential impact corridor: 500 m buffer on mapped drainage
+  downstream of glacial lakes > 0.02 km². Risk = Hazard × Exposure ×
+  Vulnerability, each normalised 0–1, equal weights."
+- **Data sources box** — every layer, its source and its vintage.
 
-### If your attribute names differ
+Plus the **top-10 ranked settlement table**, styled like your top-10 glaciers
+table. Panels remember tables.
 
-Open `assets/js/glof-map.js` and edit the `CONFIG.layers` array at the top. Each
-entry declares its own field names, so you never have to rename a column in QGIS:
+### Afternoon: wire up the web map (2 hrs)
+
+1. Drop your GeoJSON into `assets/data/`. The orange "sample data" banner clears
+   itself — it is triggered by a `"sample": true` key your exports will not have.
+2. Open `http://localhost:8000/maps/glof-risk.html` and check every layer draws.
+3. Screenshot it for the portfolio card thumbnail → `assets/img/glof-risk.jpg`.
+4. Paste the card from §7 into `index.html`.
+
+---
+
+## §6 — The paragraph that makes this honest
+
+Put this on the print sheet **and** in the portfolio card. Verbatim, or close:
+
+> Potential impact corridor derived from a fixed-width buffer on mapped drainage
+> downstream of inventoried glacial lakes. This is a screening and prioritisation
+> product, not a hydrodynamic flood model, and is not suitable for engineering
+> design or evacuation planning without further modelling.
+
+Stating a method's limits is what separates an analyst from someone who made a
+map. A technical reviewer who sees that sentence trusts everything above it more,
+not less — and the panel for a disaster-management post is exactly the audience
+that knows the difference.
+
+---
+
+## §7 — Adapting the viewer
+
+`maps/glof-risk.html` is built and working. Everything configurable sits at the
+top of `assets/js/glof-map.js`:
 
 ```js
 {
   id: 'risk',
   file: '../assets/data/risk-units.geojson',
   label: 'Risk classification',
-  kind: 'choropleth',
-  field: 'risk_class',        // ← your 1..5 class column
-  scoreField: 'risk_score',   // ← or a 0..1 score, used if class is absent
+  kind: 'choropleth',          // or 'polygon' / 'point'
+  field: 'risk_class',         // ← your 1..5 column
+  scoreField: 'risk_score',    // ← or a 0..1 score
   popup: [
-    ['name', 'Unit'],         // ← [ your column, label shown in the popup ]
+    ['name', 'Unit'],          // ← [ your column, popup label ]
     ['pop_exposed', 'Population exposed']
   ]
 }
 ```
 
-`kind` can be `choropleth`, `polygon` or `point`. Adding a sixth layer is just
-another object in that array plus a GeoJSON file.
+Missing layers degrade to a greyed-out "not found" row rather than breaking the
+page, so you can add files one at a time as you finish them.
 
-### Linking it from the portfolio
-
-Once your real data is in, paste this card into the `work-grid` in `index.html`
-(a screenshot of the viewer makes the thumbnail):
+### The portfolio card
 
 ```html
 <article class="card card--wide reveal" data-tags="hazard exposure carto">
@@ -248,9 +207,10 @@ Once your real data is in, paste this card into the `work-grid` in `index.html`
       <span class="tag">Web-GIS</span>
     </div>
     <h3>GLOF Risk Explorer — Hunza Valley</h3>
-    <p>An interactive web-GIS map combining glacial lake hazard, downstream
-       population exposure and a district vulnerability index into a single risk
-       classification. Built with Leaflet over QGIS-derived GeoJSON.</p>
+    <p>Glacial lake hazard, downstream population exposure and access-based
+       vulnerability combined into a settlement-level risk ranking, delivered as
+       a print sheet and an interactive Leaflet map over QGIS-derived GeoJSON.
+       Screening product, not a hydrodynamic flood model.</p>
     <dl class="meta">
       <div><dt>Stack</dt><dd>QGIS &rarr; GeoJSON &rarr; Leaflet</dd></div>
       <div><dt>Framing</dt><dd>Hazard &times; Exposure &times; Vulnerability</dd></div>
@@ -260,5 +220,25 @@ Once your real data is in, paste this card into the `work-grid` in `index.html`
 </article>
 ```
 
-Tell me when your data is in and I'll wire the card up and adjust the config to
-match your real columns.
+---
+
+## If you fall behind
+
+Cut in this order — each cut still leaves a complete product:
+
+1. **Drop the validation check.** Nice to have, not load-bearing.
+2. **Drop `dist_road`.** One vulnerability indicator instead of two.
+3. **Drop the print sheet, keep the web map.** The interactive map is the rarer
+   skill and the one the job description names.
+
+Do **not** cut: the corridor, the population exposure, or the limitations
+paragraph. Those three are what make it a risk product rather than another
+overlay.
+
+---
+
+## What to send me when you are done
+
+The five GeoJSON files, and the names of any columns that differ from the table
+above. I will wire the card in, adjust the config and check it renders on
+mobile — the plumbing, not the analysis.
