@@ -117,6 +117,51 @@ Still worth checking before you send the link anywhere:
 
 ---
 
+## CV (local only, not part of the site)
+
+This is a QGIS work portfolio, not an application packet, so no CV is published
+from this repo. A working copy lives in `CV/` — gitignored, never pushed — with a
+GIS-tailored variant alongside the original:
+
+```
+CV/Fatima_Mahmood_CV_GIS.tex   retitled + rebuilt for GIS/geospatial roles
+CV/Fatima_Mahmood_CV_GIS.pdf   compiled from the above (pdflatex, 2 passes)
+```
+
+Changes from the original CV, all aimed at a GIS/geospatial post rather than a
+finance/business one:
+
+- **Title** — `BUSINESS & DATA ANALYST | FINANCIAL ANALYSIS | PYTHON, EXCEL & QGIS`
+  → `GIS & GEOSPATIAL ANALYST | REMOTE SENSING, WEB-GIS & DATA VISUALIZATION`.
+- **Portfolio link added** — `https://fati-00m.github.io/QGIS_portfolio/` sits in
+  the header next to Email/LinkedIn/GitHub, and again under the EcoIndus dates
+  column alongside the four dashboard links.
+- **Summary paragraph** rewritten to lead with the geospatial workflow (QGIS,
+  Earth Engine, temporal animation, dashboard delivery) and hold the finance
+  background as a supporting line, not the headline.
+- **EcoIndus bullet** now names the actual map products (glacier inventory and
+  velocity, urban extent and population growth, 1975–2030) and their sources
+  (GHSL, Earth Engine, ITS_LIVE), matching the portfolio site's method notes
+  above rather than describing dashboards only.
+- **Certifications reordered** — QGIS certification before the IBM one, since
+  it's the more relevant credential for this kind of role.
+- **Skills table reordered** — a new "Geospatial & GIS" row leads, ahead of
+  "Digital Skills"; "Finance and Business" moved down from second to fourth.
+
+Nothing was added that isn't already true elsewhere in this repo or stated by
+you directly — no new tools, certifications or claims. If you want a second
+tailored variant (e.g. for a role that leans more on the video/dashboard side),
+copy `Fatima_Mahmood_CV_GIS.tex` and adjust.
+
+To rebuild after editing:
+
+```bash
+cd CV && pdflatex -interaction=nonstopmode Fatima_Mahmood_CV_GIS.tex && pdflatex -interaction=nonstopmode Fatima_Mahmood_CV_GIS.tex
+```
+(two passes so the hyperlink outline settles; then delete the `.aux`/`.log`/`.out` files it leaves behind)
+
+---
+
 ## Local preview
 
 ```bash

@@ -3,6 +3,18 @@ ndma_job.pdf
 *_job.pdf
 *job*.pdf
 
+# CV source + build output. Kept locally as working copies (see README);
+# this is a QGIS work portfolio, not an application packet, so the CV
+# itself is never published from this repo.
+CV/
+*.tex
+*.aux
+*.log
+*.out
+*.synctex.gz
+Fatima_Mahmood_CV*.pdf
+
+
 # ── Raw QGIS exports / source media (local only) ────────────────
 # These are the originals straight out of QGIS (HEVC .mp4 + full-res .png).
 # The web-optimised copies that the site actually serves live in
