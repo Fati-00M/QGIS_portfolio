@@ -1,7 +1,8 @@
 # Fatima Mahmood — Geospatial Portfolio
 
 A single-page portfolio showcasing QGIS cartography, satellite-derived hazard and exposure
-mapping, animated map products and public web-GIS dashboards.
+mapping, animated map products, public web-GIS dashboards, and a featured climate-exposure
+case study.
 
 **Live site:** https://fati-00m.github.io/QGIS_portfolio/
 
@@ -29,6 +30,7 @@ assets/
   js/main.js                   nav, filters, video players, lightbox
   js/glof-map.js               Leaflet viewer (config-driven, edit the top)
   data/                        GeoJSON layers for the viewer
+  docs/                        published climate-finance CV
   img/                         web-optimised map JPGs + video poster frames
   video/                       web-optimised H.264 MP4s
 .nojekyll                      serve files as-is, no Jekyll processing
@@ -102,7 +104,7 @@ Each project card documents its own workflow, confirmed by the author:
 | ------- | ------ | ------ |
 | Urban Extent 2030 | GHSL urban extent shapefiles | Categorized symbology, QGIS Print Layout |
 | Urban Extent Growth | GHSL shapefiles, 5-year intervals | QGIS dynamic temporal settings |
-| Built-up Growth | GHSL via Google Earth Engine | Python (Codex) in Google Colab, then QGIS temporal |
+| Built-up Growth | GHSL via Google Earth Engine | Python workflow in Google Colab, then QGIS temporal |
 | Population Growth | GHSL via Google Earth Engine | Python in Google Colab, then QGIS temporal |
 | Glacier Inventory | RGI v7, South Asia West (~2000) | Clipped to Pakistan, graduated symbology, Print Layout |
 | Glaciers Velocity | ITS_LIVE, South Asia West | 40 annual rasters 1986-2026, clipped, QGIS temporal |
@@ -111,54 +113,51 @@ Each project card documents its own workflow, confirmed by the author:
 Still worth checking before you send the link anywhere:
 
 - Project counts in the hero (`7` products, `3` dashboards) - update if you add more.
-- The built-up card names Codex as the tool used to write the extraction script.
-  The NDMA job description asks for AI-based tooling, so it is stated deliberately;
-  remove it from `index.html` if you would rather not mention it.
+- The project descriptions state the processing work and validation performed rather than
+  naming coding assistance as the project outcome.
 
 ---
 
-## CV (local only, not part of the site)
+## CV
 
-This is a QGIS work portfolio, not an application packet, so no CV is published
-from this repo. A working copy lives in `CV/` — gitignored, never pushed — with a
-GIS-tailored variant alongside the original:
+The downloadable climate-finance CV is published with the portfolio at:
 
 ```
-CV/Fatima_Mahmood_CV_GIS.tex   retitled + rebuilt for GIS/geospatial roles
-CV/Fatima_Mahmood_CV_GIS.pdf   compiled from the above (pdflatex, 2 passes)
+assets/docs/Fatima_Mahmood_Climate_Finance_CV.pdf
 ```
 
-Changes from the original CV, all aimed at a GIS/geospatial post rather than a
-finance/business one:
+Its LaTeX working source remains local under `CV/` and is gitignored.
 
-- **Title** — `BUSINESS & DATA ANALYST | FINANCIAL ANALYSIS | PYTHON, EXCEL & QGIS`
-  → `GIS & GEOSPATIAL ANALYST | REMOTE SENSING, WEB-GIS & DATA VISUALIZATION`.
+The published variant connects the same verified experience to climate and
+financial-analysis roles:
+
+- **Title** — `CLIMATE & GEOSPATIAL DATA ANALYST | FINANCIAL ANALYSIS & GIS`.
 - **Portfolio link added** — `https://fati-00m.github.io/QGIS_portfolio/` sits in
   the header next to Email/LinkedIn/GitHub, and again under the EcoIndus dates
   column alongside the four dashboard links.
-- **Summary paragraph** rewritten to lead with the geospatial workflow (QGIS,
-  Earth Engine, temporal animation, dashboard delivery) and hold the finance
-  background as a supporting line, not the headline.
+- **Summary paragraph** connects the geospatial workflow to the BBA and
+  financial-analysis foundation without claiming completed climate-finance modelling.
 - **EcoIndus bullet** now names the actual map products (glacier inventory and
   velocity, urban extent and population growth, 1975–2030) and their sources
   (GHSL, Earth Engine, ITS_LIVE), matching the portfolio site's method notes
   above rather than describing dashboards only.
 - **Certifications reordered** — QGIS certification before the IBM one, since
   it's the more relevant credential for this kind of role.
-- **Skills table reordered** — a new "Geospatial & GIS" row leads, ahead of
-  "Digital Skills"; "Finance and Business" moved down from second to fourth.
+- **Skills wording** uses `Excel data analysis & reporting`, describes technical
+  reporting and data storytelling, and lists only confirmed languages.
 
 Nothing was added that isn't already true elsewhere in this repo or stated by
 you directly — no new tools, certifications or claims. If you want a second
 tailored variant (e.g. for a role that leans more on the video/dashboard side),
 copy `Fatima_Mahmood_CV_GIS.tex` and adjust.
 
-To rebuild after editing:
+To rebuild the published variant after editing the local source:
 
 ```bash
-cd CV && pdflatex -interaction=nonstopmode Fatima_Mahmood_CV_GIS.tex && pdflatex -interaction=nonstopmode Fatima_Mahmood_CV_GIS.tex
+pdflatex -interaction=nonstopmode -jobname=Fatima_Mahmood_Climate_Finance_CV \
+  CV/Fatima_Mahmood_CV_Climate_Finance.tex
 ```
-(two passes so the hyperlink outline settles; then delete the `.aux`/`.log`/`.out` files it leaves behind)
+(run twice so the hyperlink outline settles, then copy the PDF into `assets/docs/`)
 
 ---
 

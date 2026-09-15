@@ -3,19 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Fatima Mahmood — Geospatial Portfolio | QGIS, Remote Sensing &amp; Web-GIS</title>
-<meta name="description" content="Geospatial analyst and data storyteller. QGIS cartography, satellite-derived hazard and exposure mapping, animated map products and public web-GIS dashboards for Pakistan.">
+<title>Fatima Mahmood — Climate &amp; Geospatial Data Analyst</title>
+<meta name="description" content="Climate and geospatial data analysis connecting environmental change and socioeconomic exposure in Pakistan to maps, dashboards, and decision-ready explanations.">
 <meta name="author" content="Fatima Mahmood">
 <meta name="theme-color" content="#10192b">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="Fatima Mahmood — Geospatial Portfolio">
-<meta property="og:description" content="QGIS cartography, hazard &amp; exposure mapping, animated map products and public web-GIS dashboards for Pakistan.">
+<meta property="og:title" content="Fatima Mahmood — Climate &amp; Geospatial Data Analyst">
+<meta property="og:description" content="Environmental and socioeconomic evidence translated into maps, dashboards, and decision-ready explanations for Pakistan.">
 <meta property="og:image" content="assets/img/urban-extent-2030.jpg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2310192b'/%3E%3Cpath d='M6 21c4-7 8 3 12-4s5-6 8-8' stroke='%230d7a6f' stroke-width='2.2' fill='none' stroke-linecap='round'/%3E%3Cpath d='M6 26c4-7 8 3 12-4s5-6 8-8' stroke='%23c25a1e' stroke-width='2.2' fill='none' stroke-linecap='round' opacity='.75'/%3E%3C/svg%3E">
 </head>
@@ -31,8 +31,10 @@
     </a>
     <nav class="nav__links" aria-label="Primary">
       <a href="#work">Work</a>
+      <a href="#case-study">Featured case study</a>
       <a href="#dashboards">Dashboards</a>
       <a href="#skills">Skills</a>
+      <a href="#about">About/CV</a>
       <a href="#contact">Contact</a>
     </nav>
     <div class="nav__actions">
@@ -51,18 +53,18 @@
   <div class="hero__grid" aria-hidden="true"></div>
   <div class="wrap hero__inner">
     <div class="hero__text reveal">
-      <p class="eyebrow"><span class="dot"></span> Islamabad, Pakistan &middot; Open to GIS &amp; analyst roles</p>
+      <p class="eyebrow"><span class="dot"></span> Islamabad, Pakistan &middot; Open to climate, sustainability, GIS, research, and analyst roles</p>
       <h1 class="hero__title">Turning satellite data into <em>maps people can act on.</em></h1>
       <p class="hero__lede">
-        I'm a geospatial analyst and data storyteller working at the intersection of
-        <strong>QGIS cartography</strong>, <strong>remote sensing</strong> and <strong>public web dashboards</strong>.
-        I build hazard, exposure and urbanisation products for Pakistan — glacier inventories,
-        settlement growth models, animated map narratives — and turn them into briefings
-        non-technical decision-makers can read in thirty seconds.
+        I am a climate and geospatial data analyst combining environmental research with a BBA and
+        financial-analysis foundation. I use QGIS, Google Earth Engine, Python, and open satellite data
+        to examine physical climate risk, environmental change, and socioeconomic exposure in Pakistan—then
+        translate the evidence into maps, dashboards, and concise decision-ready explanations.
       </p>
       <div class="hero__cta">
         <a class="btn btn--solid" href="#work">View the map portfolio</a>
         <a class="btn btn--ghost" href="#dashboards">Live dashboards</a>
+        <a class="btn btn--ghost" href="assets/docs/Fatima_Mahmood_Climate_Finance_CV.pdf" download>Download climate-finance CV</a>
       </div>
       <dl class="hero__stats">
         <div><dt>7</dt><dd>Map &amp; motion products</dd></div>
@@ -116,7 +118,12 @@
         <div class="card__body">
           <div class="card__tags"><span class="tag tag--exp">Exposure</span><span class="tag">Static map</span></div>
           <h3>Pakistan Urban Extent — 2030 Projection</h3>
-          <p>Built from GHSL urban extent shapefiles clipped to Pakistan, then classified with categorized symbology into urban centre, dense cluster, semi-dense and suburban, and composed as a print sheet in the QGIS Print Layout. The banded pattern along the Indus corridor and the Punjab plain shows where future exposure concentrates — the same footprint that determines flood, heat and seismic risk for the next decade.</p>
+          <p>Built from GHSL urban extent layers clipped to Pakistan, then classified with categorised symbology into urban centre, dense cluster, semi-dense and suburban classes and composed as a print sheet in QGIS Print Layout.</p>
+          <div class="decision-lens">
+            <p><strong>Question:</strong> Where is built-up and population exposure increasing across Pakistan?</p>
+            <p><strong>Method:</strong> GHSL layers were clipped, classified, and arranged as a temporal series in QGIS.</p>
+            <p><strong>Decision use:</strong> The output can support early screening for locations where infrastructure, heat, flood, and service-delivery analysis may need deeper investigation. It does not by itself estimate financial loss or investment return.</p>
+          </div>
           <dl class="meta">
             <div><dt>Source</dt><dd>GHSL urban extent shapefiles</dd></div>
             <div><dt>Symbology</dt><dd>Categorized · 4 classes</dd></div>
@@ -157,10 +164,10 @@
         <div class="card__body">
           <div class="card__tags"><span class="tag tag--exp">Exposure</span><span class="tag tag--mot">Animation</span></div>
           <h3>Built-up Surface Growth</h3>
-          <p>The GHSL built-up surface pulled from Google Earth Engine by a Python script I wrote in Google Colab with Codex, exporting Pakistan-only rasters for the full series. Each raster was then given a dynamic temporal date in QGIS to drive the animation. Rendered dark-field so new construction reads as light emerging from an unbuilt baseline — a deliberately legible format for slide decks and international briefings.</p>
+          <p>The GHSL built-up surface was pulled from Google Earth Engine with a Python workflow in Google Colab, exporting Pakistan-only rasters for the full series. Each raster was then given a dynamic temporal date in QGIS to drive the animation. The script selected the GHSL layers, clipped the export to Pakistan, produced each time step, and was checked against the expected years and geographic extent.</p>
           <dl class="meta">
             <div><dt>Source</dt><dd>GHSL via Google Earth Engine</dd></div>
-            <div><dt>Script</dt><dd>Python (Codex) in Google Colab</dd></div>
+            <div><dt>Script</dt><dd>Python workflow in Google Colab</dd></div>
             <div><dt>Span</dt><dd>1975 &rarr; 2030</dd></div>
             <div><dt>Method</dt><dd>QGIS dynamic temporal settings</dd></div>
           </dl>
@@ -181,6 +188,11 @@
           <div class="card__tags"><span class="tag tag--haz">Hazard</span><span class="tag">Static map</span></div>
           <h3>Pakistan Randolph Glacier Inventory</h3>
           <p>RGI version 7 shapefiles for the South Asia West region, clipped by mask layer to a Pakistan boundary, then classified with graduated symbology into five area classes and composed in the QGIS Print Layout. Paired with a ranked table of the ten largest bodies — Siachen at 1,087.9&nbsp;km², Baltoro at 790&nbsp;km², Biafo at 532&nbsp;km². RGI v7 approximates glacier area to the year 2000, giving a fixed baseline for any glacial lake outburst flood or water-security assessment.</p>
+          <div class="decision-lens">
+            <p><strong>Question:</strong> Where are Pakistan's largest mapped glaciers within the RGI baseline?</p>
+            <p><strong>Method:</strong> RGI v7 outlines were clipped to Pakistan, classified by area, and presented with a ranked table in QGIS.</p>
+            <p><strong>Decision use:</strong> The inventory can support screening for glacier research and water-security assessment. It is a fixed circa-2000 baseline, not a current hazard forecast.</p>
+          </div>
           <dl class="meta">
             <div><dt>Source</dt><dd>RGI v7 · South Asia West · ~2000</dd></div>
             <div><dt>Clip</dt><dd>Pakistan boundary mask layer</dd></div>
@@ -201,7 +213,7 @@
         <div class="card__body">
           <div class="card__tags"><span class="tag tag--haz">Hazard</span><span class="tag tag--mot">Animation</span></div>
           <h3>Pakistan Glaciers Velocity</h3>
-          <p>Forty annual ITS_LIVE surface-velocity rasters for the South Asia West region, downloaded for every year from 1986 to 2026, each clipped by mask extent to a Pakistan boundary shapefile and assigned a dynamic temporal date to drive the animation. Fast-moving tongues light up against the static mass — the diagnostic that separates a stable glacier from a surging one, and a leading indicator ahead of glacial lake outburst events.</p>
+          <p>Forty annual ITS_LIVE surface-velocity rasters for the South Asia West region, downloaded for every year from 1986 to 2026, each clipped by mask extent to a Pakistan boundary shapefile and assigned a dynamic temporal date to drive the animation. The series is useful for screening glacier dynamics; it is not a standalone forecast of glacial-lake outburst floods.</p>
           <dl class="meta">
             <div><dt>Source</dt><dd>ITS_LIVE · South Asia West</dd></div>
             <div><dt>Span</dt><dd>1986 &rarr; 2026 · 40 annual rasters</dd></div>
@@ -260,26 +272,138 @@
   </div>
 </section>
 
+<!-- ───────────────────── FEATURED CASE STUDY ─────────────────── -->
+<section class="section section--alt" id="case-study">
+  <div class="wrap">
+    <header class="shead reveal">
+      <p class="eyebrow">Featured case study</p>
+      <h2>Pakistan Urban Extent &amp; Exposure</h2>
+      <p class="shead__sub">A screening-level view of how Pakistan's settlement pattern changes from 1975 to 2030, and what that evidence can—and cannot—support.</p>
+    </header>
+
+    <div class="case-study reveal">
+      <div class="case-study__copy">
+        <section>
+          <h3>Context</h3>
+          <p>Settlement and population growth shape where people, infrastructure, and services may be exposed to climate hazards. A consistent national time series can help identify places that warrant deeper resilience, infrastructure, and financial assessment.</p>
+        </section>
+
+        <section>
+          <h3>Question</h3>
+          <p>Where is built-up and population exposure increasing across Pakistan between 1975 and 2030?</p>
+        </section>
+
+        <section>
+          <h3>Data</h3>
+          <dl class="case-facts">
+            <div><dt>Source</dt><dd><a href="https://human-settlement.emergency.copernicus.eu/ghs_smod2023.php" target="_blank" rel="noopener">European Commission JRC, GHS-SMOD R2023A</a></dd></div>
+            <div><dt>Dates</dt><dd>1975–2030 at five-year intervals; 2025 and 2030 are projections</dd></div>
+            <div><dt>Resolution</dt><dd>1 km source grid for the settlement classification</dd></div>
+            <div><dt>Coverage</dt><dd>Global source data clipped to Pakistan</dd></div>
+            <div><dt>Access checked</dt><dd>15 September 2026</dd></div>
+          </dl>
+        </section>
+
+        <section>
+          <h3>Method</h3>
+          <ol class="method-steps">
+            <li>Acquire the GHSL settlement-classification layers for each five-year epoch.</li>
+            <li>Clip the layers to Pakistan and retain the relevant degree-of-urbanisation classes.</li>
+            <li>Apply consistent categorised symbology in QGIS across all time steps.</li>
+            <li>Assign a temporal date to each layer and inspect the sequence with the QGIS temporal controller.</li>
+            <li>Compose the 2030 print layout and export the time series as a web-ready animation.</li>
+          </ol>
+        </section>
+
+        <section>
+          <h3>Decision relevance</h3>
+          <p>This analysis can help identify areas for deeper climate-risk, infrastructure, or service-access assessment. A financing decision would still require hazard data, asset-level exposure, vulnerability assumptions, costs, and financial analysis.</p>
+        </section>
+
+        <section>
+          <h3>Limitations</h3>
+          <ul class="case-list">
+            <li>GHSL is a modelled global dataset and does not replace locally validated census, cadastral, or infrastructure records.</li>
+            <li>The 2025 and 2030 layers are projections and carry model uncertainty; the visual sequence does not establish why change occurred.</li>
+            <li>A 1 km national screening layer cannot support site-level design, valuation, lending, or investment decisions on its own.</li>
+            <li>The published map uses EPSG:4326 for display; area and distance analysis would require an appropriate projected CRS.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Reproducibility</h3>
+          <p>Study period: 1975–2030. Published CRS: EPSG:4326 / WGS 84. Software: QGIS. This urban-extent output uses prepared GHSL layers; it does not claim a Python or Earth Engine processing step that is not documented for this specific product. See the <a href="https://github.com/Fati-00M/QGIS_portfolio#method-notes" target="_blank" rel="noopener">project method notes</a> and the <a href="https://data.jrc.ec.europa.eu/dataset/a0df7a6f-49de-46ea-9bde-563437a6e2ba" target="_blank" rel="noopener">source dataset record</a>.</p>
+        </section>
+      </div>
+
+      <div class="case-study__media">
+        <figure>
+          <img src="assets/img/urban-extent-2030-full.jpg" alt="Pakistan map showing 2030 GHSL settlement classes, including urban centres, dense clusters, semi-dense areas, and suburban areas" loading="lazy" width="2200" height="1555">
+          <figcaption>The 2030 layer shows the spatial distribution of mapped settlement classes across Pakistan; it does not attribute the pattern to any single cause.</figcaption>
+        </figure>
+        <figure>
+          <video poster="assets/img/poster-urban-extent-growth.jpg" muted loop playsinline controls preload="metadata">
+            <source src="assets/video/urban-extent-growth.mp4" type="video/mp4">
+          </video>
+          <figcaption>The animation displays the GHSL settlement-class sequence at five-year intervals from 1975 to 2030.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────── EVIDENCE TO FINANCE ─────────────────── -->
+<section class="section" id="evidence-finance">
+  <div class="wrap">
+    <header class="shead reveal">
+      <p class="eyebrow">Decision bridge</p>
+      <h2>From environmental evidence to better financial questions</h2>
+      <p class="shead__sub">Geospatial analysis can help screen where physical hazards, environmental change, people, and assets may overlap. My current work focuses on producing that evidence clearly and reproducibly. I am building on my BBA, financial-analysis coursework, and commodities-market exposure to understand how this evidence informs climate-risk assessment, resilience investment, sustainable finance, and project prioritisation.</p>
+    </header>
+
+    <div class="evidence-table-wrap reveal">
+      <table class="evidence-table">
+        <thead>
+          <tr><th>Project</th><th>Risk or change</th><th>Data</th><th>Output</th><th>Possible decision use</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Urban extent</th><td>Growth in exposed settlements</td><td>GHSL</td><td>Map + time series</td><td>Screening for deeper infrastructure or hazard analysis</td></tr>
+          <tr><th scope="row">Deforestation</th><td>Forest-cover loss</td><td>Hansen Global Forest Change</td><td>Dashboard</td><td>Monitoring and prioritising areas for investigation</td></tr>
+          <tr><th scope="row">Fire alerts</th><td>Active-fire occurrence</td><td>NASA FIRMS / VIIRS</td><td>Dashboard</td><td>Situational awareness and follow-up screening</td></tr>
+          <tr><th scope="row">Glaciers</th><td>Glacier inventory and velocity</td><td>RGI + ITS_LIVE</td><td>Map + animation</td><td>Screening glacier dynamics and research priorities</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
 <!-- ──────────────────────── DASHBOARDS ──────────────────────── -->
 <section class="section section--alt" id="dashboards">
   <div class="wrap">
     <header class="shead reveal">
       <p class="eyebrow">Live &amp; public</p>
       <h2>Web dashboards in production</h2>
-      <p class="shead__sub">Built and maintained for <a href="https://ecoindus.org" target="_blank" rel="noopener">EcoIndus</a>, the nonprofit research initiative I co-founded to monitor environmental and socioeconomic risk in Pakistan. Python and Google Earth Engine on the back end, GitHub Pages on the front.</p>
+      <p class="shead__sub">Built and maintained for <a href="https://ecoindus.netlify.app" target="_blank" rel="noopener">EcoIndus</a>, the independent environmental research initiative I co-founded to examine environmental and socioeconomic risk in Pakistan. These links open the currently published dashboard snapshots in a new tab.</p>
     </header>
 
     <div class="dash-grid">
       <a class="dash reveal" href="https://fati-00m.github.io/Pakistan-Deforestation-Tracker/" target="_blank" rel="noopener">
+        <img class="dash__thumb" src="assets/img/dashboard-deforestation.png" alt="Deforestation dashboard showing forest-loss indicators and a mapped distribution of canopy-loss observations across Pakistan" loading="lazy" width="1440" height="900">
         <span class="dash__ico" aria-hidden="true">
           <svg viewBox="0 0 24 24"><path d="M12 21v-4M12 17c-3.6 0-6.5-2.9-6.5-6.5S8.4 3 12 3s6.5 3.9 6.5 7.5S15.6 17 12 17z"/></svg>
         </span>
         <h3>Pakistan Deforestation Tracker</h3>
         <p>Forest-loss monitoring built on Earth-observation time series, published as an open dashboard.</p>
+        <div class="decision-lens decision-lens--compact">
+          <p><strong>Question:</strong> Where and when does the processed dataset indicate forest-cover loss?</p>
+          <p><strong>Method:</strong> Hansen-labelled observations are filtered and summarised by year and geography.</p>
+          <p><strong>Decision use:</strong> Monitoring and prioritising areas for follow-up investigation; not a standalone enforcement or financial-loss estimate.</p>
+        </div>
         <span class="dash__go">Open dashboard <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18L18 6M9 6h9v9"/></svg></span>
       </a>
 
       <a class="dash reveal" data-delay="1" href="https://fati-00m.github.io/Pakistan-Fire-Alerts-Dashboard/" target="_blank" rel="noopener">
+        <img class="dash__thumb" src="assets/img/dashboard-fire-alerts.png" alt="Fire alerts dashboard showing national fire indicators, filters, and clustered thermal detections across Pakistan" loading="lazy" width="1440" height="900">
         <span class="dash__ico" aria-hidden="true">
           <svg viewBox="0 0 24 24"><path d="M12 3c3 4 5 5.5 5 9a5 5 0 11-10 0c0-2 1-3.2 2-4.4.6 1.4 1.4 2 2.2 2.2C11.6 7.6 11.4 5.4 12 3z"/></svg>
         </span>
@@ -289,6 +413,7 @@
       </a>
 
       <a class="dash reveal" data-delay="2" href="https://fati-00m.github.io/Pakistan-Urbanization-Maps" target="_blank" rel="noopener">
+        <img class="dash__thumb" src="assets/img/dashboard-urbanisation.png" alt="Urban settlement dashboard showing population indicators, filters, and a district-level map of Pakistan" loading="lazy" width="1440" height="900">
         <span class="dash__ico" aria-hidden="true">
           <svg viewBox="0 0 24 24"><path d="M4 20V9l5-3v14M9 20V6l6-3v17M15 20V10l5 3v7M3.5 20h17"/></svg>
         </span>
@@ -324,7 +449,7 @@
         <ul>
           <li>Python <span class="mono">— data workflows &amp; automation</span></li>
           <li>Google Colab <span class="mono">— Earth Engine export scripting</span></li>
-          <li>Excel <span class="mono">— advanced analysis &amp; modelling</span></li>
+          <li>Excel <span class="mono">— data analysis &amp; reporting</span></li>
           <li>IBM SPSS Statistics</li>
           <li>Statistical &amp; financial analysis</li>
           <li>Research design &amp; documentation</li>
@@ -343,10 +468,10 @@
       <div class="skillset reveal" data-delay="3">
         <h3>Communication</h3>
         <ul>
-          <li>Technical &amp; executive reporting</li>
+          <li>Technical reporting &amp; data storytelling</li>
           <li>Presentation design</li>
           <li>Data storytelling for non-specialists</li>
-          <li>English, Urdu, Chinese</li>
+          <li>English and Urdu</li>
         </ul>
       </div>
     </div>
@@ -362,6 +487,24 @@
   </div>
 </section>
 
+<!-- ───────────────────────── ABOUT / CV ─────────────────────── -->
+<section class="section section--alt" id="about">
+  <div class="wrap about-grid reveal">
+    <div>
+      <p class="eyebrow">About</p>
+      <h2>Climate evidence, geospatial analysis, and decision-ready communication</h2>
+      <p>I combine environmental research and geospatial practice with a BBA and coursework in financial management, valuation, investment, and international finance. My current work focuses on transparent screening evidence: maps, time series, and dashboards that make the method, possible use, and limitations visible.</p>
+      <p>I am developing the bridge from physical climate and socioeconomic evidence to better questions about risk, resilience investment, sustainable finance, and project prioritisation—without presenting screening maps as completed financial models.</p>
+    </div>
+    <aside class="cv-card">
+      <p class="eyebrow">Curriculum vitae</p>
+      <h3>Climate-finance CV</h3>
+      <p>Experience, education, certifications, and the combined geospatial and financial-analysis foundation behind this portfolio.</p>
+      <a class="btn btn--solid" href="assets/docs/Fatima_Mahmood_Climate_Finance_CV.pdf" download>Download CV</a>
+    </aside>
+  </div>
+</section>
+
 <!-- ────────────────────────── CONTACT ───────────────────────── -->
 <section class="section contact" id="contact">
   <div class="wrap contact__inner reveal">
@@ -371,12 +514,14 @@
       <p class="contact__lede">Happy to walk through any product here — the data behind it, the processing chain, or how it was styled.</p>
       <div class="contact__actions">
         <a class="btn btn--solid" href="mailto:fatimamahmood1311@gmail.com">fatimamahmood1311@gmail.com</a>
+        <a class="btn btn--ghost" href="https://pk.linkedin.com/in/fatima-mahmood-b49736276" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn btn--ghost" href="assets/docs/Fatima_Mahmood_Climate_Finance_CV.pdf" download>Download CV</a>
       </div>
     </div>
     <ul class="contact__links">
       <li><a href="https://pk.linkedin.com/in/fatima-mahmood-b49736276" target="_blank" rel="noopener"><span class="mono">→</span> LinkedIn</a></li>
       <li><a href="https://github.com/Fati-00M" target="_blank" rel="noopener"><span class="mono">→</span> GitHub</a></li>
-      <li><a href="https://ecoindus.org" target="_blank" rel="noopener"><span class="mono">→</span> EcoIndus</a></li>
+      <li><a href="https://ecoindus.netlify.app" target="_blank" rel="noopener"><span class="mono">→</span> EcoIndus</a></li>
     </ul>
   </div>
 </section>
